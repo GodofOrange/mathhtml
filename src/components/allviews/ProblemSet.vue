@@ -13,18 +13,18 @@
         <div style="padding: 10px;">
           <span>考研</span>
           <div class="bottom">
-            <el-button type="text" class="button">进入题库</el-button>
+            <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
           </div>
         </div>
       </el-card>
     </el-col>
       <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
         <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img src="@/assets/Lesson.jpg" class="image">
+          <img src="@/assets/mathmodel-example.jpg" class="image">
           <div style="padding: 10px;">
-            <span>考研</span>
+            <span>基础题</span>
             <div class="bottom">
-              <el-button type="text" class="button">进入题库</el-button>
+              <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
             </div>
           </div>
         </el-card>
@@ -98,7 +98,7 @@
             </el-dropdown>
           </el-col>
           <el-col :span="1"><br></el-col>
-          <el-button  round><i class="el-icon-magic-stick"></i>随机开始</el-button>
+          <el-button @click="turnToProblem" round><i class="el-icon-magic-stick"></i>随机开始</el-button>
         </el-row>
       </div>
       <div style="margin-top: 20px;margin-right: 15%;margin-left: 15%">
@@ -163,6 +163,11 @@ export default {
     turnToProblem () {
       this.$router.replace({
         path: '/problem'
+      })
+    },
+    turnToProblem_model () {
+      this.$router.replace({
+        path: '/problem-model'
       })
     }
   }

@@ -8,6 +8,11 @@ import homework from '@/components/homework/homework.vue'
 import community from '@/components/community/community.vue'
 import modeling from '@/components/modeling/modeling.vue'
 import problem from '@/components/problems/problem.vue'
+import lesson from '@/components/class/class.vue'
+import problemmodel from '@/components/problems/problem-model.vue'
+import askandanswer from '@/components/community/ask_and_answer.vue'
+import communityRank from '@/components/community/community_rank.vue'
+import BigMath from '@/components/community/BigMath'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +56,31 @@ export default new Router({
       path: '/problem',
       name: 'problem',
       component: problem
+    },
+    {
+      path: '/class',
+      name: 'class',
+      component: lesson
+    },
+    {
+      path: '/problem-model',
+      name: 'problem-model',
+      component: problemmodel
+    },
+    {
+      path: '/community/ask_and_answer',
+      name: 'ask_and_answer',
+      component: askandanswer
+    },
+    {
+      path: '/community/community_rank',
+      name: 'community_rank',
+      component: communityRank
+    },
+    {
+      path: '/community/BigMath',
+      name: 'BigMath',
+      component: BigMath
     }
   ]
 })

@@ -37,13 +37,17 @@
     <div class="answer-body">
       <h3>回答主体</h3>
       <el-row :gutter="20">
-        <el-col :span="4"><el-input v-model="input" placeholder="请输入内容"></el-input></el-col>
+        <el-col :span="4"><el-input placeholder="请输入内容"></el-input></el-col>
         <el-col :span="4"><el-button type="primary">提交答案</el-button></el-col>
       </el-row>
     </div>
     <el-divider/>
     <div class="comment-body">
-      <h3>评论主体</h3>
+      <el-row>
+      <el-col :span="12"><h3>评论主体</h3></el-col>
+      <el-col :span="12"><el-button type="primary" style="margin-top: 10px;float: right">提交评论</el-button></el-col>
+      </el-row>
+      <iframe src="http://www.baldorange.cn:8111/myeditor/1.html" name="editor" style="width: 100%" scrolling="no" height="500px" frameborder="0"></iframe>
     </div>
   </div>
 </template>
@@ -55,6 +59,19 @@ export default {
     return {
       value: 3.7,
       colors: ['#99A9BF', '#F7BA2A', '#FF9900']
+    }
+  },
+  mounted () {
+  },
+  methods: {
+    loadEditor () {
+      this.$ajax.get('http://www.baldorange.cn:8111/myeditor/1.html')
+        .then(function (res) {
+          console.log(res.data)
+        })
+        .catch(function (res) {
+          console.log(res)
+        })
     }
   }
 }

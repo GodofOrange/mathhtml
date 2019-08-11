@@ -14,8 +14,9 @@
     <el-menu-item index="5"><i class="el-icon-notebook-2"></i>作业</el-menu-item>
     <el-menu-item index="6"><i class="el-icon-user-solid"></i>社区</el-menu-item>
     <el-menu-item index="7"><i class="el-icon-link"></i>数学建模</el-menu-item>
-    <el-menu-item index="8" class="right">我的消息</el-menu-item>
-    <el-menu-item index="9" class="right">头像</el-menu-item>
+    <el-menu-item index="8"><i class="el-icon-link"></i>同步</el-menu-item>
+    <el-menu-item index="9" class="right">我的信息</el-menu-item>
+    <el-menu-item index="10" class="right">头像</el-menu-item>
     </el-menu>
     </div>
     <transition name="el-fade-in"><router-view/></transition>
@@ -26,7 +27,7 @@ export default {
   name: 'app',
   data () {
     return {
-      activeIndex: '1'
+      activeIndex: '2'
     }
   },
   methods: {
@@ -58,6 +59,10 @@ export default {
       } else if (key === '7') {
         this.$router.replace({
           path: '/modeling'
+        })
+      } else if (key === '8') {
+        this.$router.replace({
+          path: '/class'
         })
       }
     }
