@@ -34,7 +34,7 @@
     </el-submenu>
     <el-menu-item index="7"><i class="el-icon-document"></i>阅读</el-menu-item>
     <el-menu-item index="8"><i class="el-icon-notebook-2"></i>作业</el-menu-item>
-    <el-menu-item index="12" class="right">我的信息</el-menu-item>
+    <el-menu-item index="12" class="right">我的信息(登录页面)</el-menu-item>
     <el-menu-item index="13" class="right">头像</el-menu-item>
     </el-menu>
     </div>
@@ -114,6 +114,10 @@ export default {
       } else if (key === '12') {
         this.$router.replace({
           path: '/login'
+        })
+      } else if (key === '0') {
+        this.$router.replace({
+          path: '/announcement'
         })
       }
     }

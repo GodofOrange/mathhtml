@@ -31,6 +31,7 @@ import StudyAbility from '@/components/together/myBigMathViews/StudyAbility.vue'
 import ChatRoom from '@/components/together/myBigClass/ChatRoom.vue'
 import makeFriend from '@/components/together/myBigClass/makeFriend.vue'
 import MyBigClass from '@/components/together/myBigClass/MyBigClass.vue'
+import Announcement from '@/components/allviews/announcement.vue'
 const ProblemSet = () => import('@/components/extract/ProblemSet')
 Vue.use(Router)
 
@@ -139,6 +140,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/announcement',
+      name: 'announcement',
+      component: Announcement
     }
   ]
 })
