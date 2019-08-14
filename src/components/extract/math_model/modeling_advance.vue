@@ -1,12 +1,12 @@
 <template>
     <div>
-      class
+      数据建模进阶
     </div>
 </template>
 
 <script>
 export default {
-  name: 'class'
+  name: 'modeling_advance'
 }
 </script>
 

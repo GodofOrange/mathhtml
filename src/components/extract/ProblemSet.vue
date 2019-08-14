@@ -11,7 +11,7 @@
       <el-card :body-style="{ padding: '0px' }" shadow="hover">
         <img src="@/assets/Lesson.jpg" class="image">
         <div style="padding: 10px;">
-          <span>考研</span>
+          <span>短板题库</span>
           <div class="bottom">
             <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
           </div>
@@ -22,7 +22,29 @@
         <el-card :body-style="{ padding: '0px' }" shadow="hover">
           <img src="@/assets/mathmodel-example.jpg" class="image">
           <div style="padding: 10px;">
-            <span>基础题</span>
+            <span>竞赛模块</span>
+            <div class="bottom">
+              <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
+        <el-card :body-style="{ padding: '0px' }" shadow="hover">
+          <img src="@/assets/mathmodel-example.jpg" class="image">
+          <div style="padding: 10px;">
+            <span>考研模块</span>
+            <div class="bottom">
+              <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
+        <el-card :body-style="{ padding: '0px' }" shadow="hover">
+          <img src="@/assets/mathmodel-example.jpg" class="image">
+          <div style="padding: 10px;">
+            <span>深蓝模块</span>
             <div class="bottom">
               <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
             </div>
