@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ProblemSet from '@/components/extract/ProblemSet'
 import explore from '@/components/allviews/explore'
 import contest from '@/components/extract/contest.vue'
 import read from '@/components/read/read.vue'
@@ -21,6 +20,18 @@ import homeworkPlay from '@/components/interact/BigMathWorld/homework_play.vue'
 import articleUP from '@/components/interact/BigMathWorld/article.vue'
 import ProblemUpload from '@/components/interact/BigMathWorld/ProblemUpload.vue'
 import theOneHomework from '@/components/interact/BigMathWorld/homework/theOneHomework.vue'
+import CompetitiveIndex from '@/components/interact/rank/CompetitiveIndex'
+import BigEfficiency from '@/components/interact/rank/BigEfficiency'
+import Liveness from '@/components/interact/rank/Liveness'
+import onLineTime from '@/components/interact/rank/onLineTime'
+import IntegralRanking from '@/components/interact/rank/IntegralRanking'
+import Login from '@/components/allviews/Login.vue'
+import BigMathGraph from '@/components/together/myBigMathViews/BigMathGraph.vue'
+import StudyAbility from '@/components/together/myBigMathViews/StudyAbility.vue'
+import ChatRoom from '@/components/together/myBigClass/ChatRoom.vue'
+import makeFriend from '@/components/together/myBigClass/makeFriend.vue'
+import MyBigClass from '@/components/together/myBigClass/MyBigClass.vue'
+const ProblemSet = () => import('@/components/extract/ProblemSet')
 Vue.use(Router)
 
 export default new Router({
@@ -73,7 +84,12 @@ export default new Router({
     {
       path: '/community/community_rank',
       name: 'community_rank',
-      component: communityRank
+      component: communityRank,
+      children: [{path: 'CompetitiveIndex', component: CompetitiveIndex},
+        {path: 'BigEfficiency', component: BigEfficiency},
+        {path: 'Liveness', component: Liveness},
+        {path: 'IntegralRanking', component: IntegralRanking},
+        {path: 'onLineTime', component: onLineTime}]
     },
     {
       path: '/community/BigMath',
@@ -92,12 +108,17 @@ export default new Router({
     {
       path: '/community/BigMathWorld/MyBigMath',
       name: 'MyBigMath',
-      component: MyBigMath
+      component: MyBigMath,
+      children: [{path: 'BigMathGraph', component: BigMathGraph},
+        {path: 'StudyAbility', component: StudyAbility}]
     },
     {
       path: '/community/community/BigClass',
       name: 'BigClass',
-      component: BigClass
+      component: BigClass,
+      children: [{path: 'ChatRoom', component: ChatRoom},
+        {path: 'makeFriend', component: makeFriend},
+        {path: 'MyBigClass', component: MyBigClass}]
     },
     {
       path: '/extract/modeling_info',
@@ -113,6 +134,11 @@ export default new Router({
       path: '/extract/modeling_high',
       name: 'modeling_high',
       component: modelingHigh
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })

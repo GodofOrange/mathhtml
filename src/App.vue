@@ -111,6 +111,10 @@ export default {
         this.$router.replace({
           path: '/extract/modeling_high'
         })
+      } else if (key === '12') {
+        this.$router.replace({
+          path: '/login'
+        })
       }
     }
   }
@@ -125,5 +129,4 @@ export default {
     position:relative;
     float: right;
   }
-
 </style>
