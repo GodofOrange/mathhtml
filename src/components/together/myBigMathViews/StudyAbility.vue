@@ -21,6 +21,8 @@
 <script>
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/visualMap')
+require('echarts/lib/chart/pie')
+require('echarts/lib/component/visualMapPiecewise')
 export default {
   name: 'StudyAbility',
   data () {

@@ -41,19 +41,19 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       if (key === '1') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/community_rank/onLineTime'
         })
       } else if (key === '2') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/community_rank/BigEfficiency'
         })
       } else if (key === '3') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/community_rank/Liveness'
         })
       } else if (key === '4') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/community_rank/CompetitiveIndex'
         })
       }

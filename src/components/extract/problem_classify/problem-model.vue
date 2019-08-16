@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     turnToProblem () {
-      this.$router.replace({
+      this.$router.push({
         path: '/problem'
       })
     }

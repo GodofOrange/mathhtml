@@ -23,7 +23,7 @@ export default {
   name: 'homework_play',
   methods: {
     turnToHomeWork () {
-      this.$router.replace('/community/BigMath/theOneHomework')
+      this.$router.push('/community/BigMath/theOneHomework')
     }
   }
 }

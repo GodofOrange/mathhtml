@@ -10,6 +10,8 @@
           <p>题目解析</p>
           <el-divider></el-divider>
           <p>题目讨论</p>
+          <el-divider></el-divider>
+          <p>相似题型推荐</p>
         </el-col>
       </el-row>
     </div>

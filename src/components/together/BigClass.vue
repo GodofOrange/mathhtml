@@ -36,11 +36,11 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       if (key === '1') {
-        this.$router.replace('/community/community/BigClass/MyBigClass')
+        this.$router.push('/community/community/BigClass/MyBigClass')
       } else if (key === '2') {
-        this.$router.replace('/community/community/BigClass/makeFriend')
+        this.$router.push('/community/community/BigClass/makeFriend')
       } else if (key === '3') {
-        this.$router.replace('/community/community/BigClass/ChatRoom')
+        this.$router.push('/community/community/BigClass/ChatRoom')
       }
     }
   }

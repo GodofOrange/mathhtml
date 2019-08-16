@@ -43,15 +43,15 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       if (key === '1') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/BigMath/homework_play'
         })
       } else if (key === '2') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/BigMath/article'
         })
       } else if (key === '3') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/BigMath/problem_upload'
         })
       }

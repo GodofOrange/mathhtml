@@ -1,37 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import explore from '@/components/allviews/explore'
-import contest from '@/components/extract/contest.vue'
-import read from '@/components/read/read.vue'
-import homework from '@/components/homework/homework.vue'
-import modeling from '@/components/extract/math_model/modeling.vue'
-import problem from '@/components/extract/problems/problem.vue'
-import problemmodel from '@/components/extract/problem_classify/problem-model.vue'
-import askandanswer from '@/components/interact/ask_and_answer.vue'
-import communityRank from '@/components/interact/community_rank.vue'
-import BigMath from '@/components/interact/BigMath.vue'
-import exampleProblem from '@/components/extract/example_problem.vue'
-import MyBigMath from '@/components/together/MyBigMath.vue'
-import BigClass from '@/components/together/BigClass.vue'
-import modelingInfo from '@/components/extract/math_model/modeling_info.vue'
-import modelingAdvance from '@/components/extract/math_model/modeling_advance.vue'
-import modelingHigh from '@/components/extract/math_model/modeling_high.vue'
-import homeworkPlay from '@/components/interact/BigMathWorld/homework_play.vue'
-import articleUP from '@/components/interact/BigMathWorld/article.vue'
-import ProblemUpload from '@/components/interact/BigMathWorld/ProblemUpload.vue'
-import theOneHomework from '@/components/interact/BigMathWorld/homework/theOneHomework.vue'
-import CompetitiveIndex from '@/components/interact/rank/CompetitiveIndex'
-import BigEfficiency from '@/components/interact/rank/BigEfficiency'
-import Liveness from '@/components/interact/rank/Liveness'
-import onLineTime from '@/components/interact/rank/onLineTime'
-import IntegralRanking from '@/components/interact/rank/IntegralRanking'
-import Login from '@/components/allviews/Login.vue'
-import BigMathGraph from '@/components/together/myBigMathViews/BigMathGraph.vue'
-import StudyAbility from '@/components/together/myBigMathViews/StudyAbility.vue'
-import ChatRoom from '@/components/together/myBigClass/ChatRoom.vue'
-import makeFriend from '@/components/together/myBigClass/makeFriend.vue'
-import MyBigClass from '@/components/together/myBigClass/MyBigClass.vue'
-import Announcement from '@/components/allviews/announcement.vue'
+const contest = () => import('@/components/extract/contest.vue')
+const read = () => import('@/components/read/read.vue')
+const homework = () => import('@/components/homework/homework.vue')
+const modeling = () => import('@/components/extract/math_model/modeling.vue')
+const problem = () => import('@/components/extract/problems/problem.vue')
+const problemmodel = () => import('@/components/extract/problem_classify/problem-model.vue')
+const askandanswer = () => import('@/components/interact/ask_and_answer.vue')
+const communityRank = () => import('@/components/interact/community_rank.vue')
+const BigMath = () => import('@/components/interact/BigMath.vue')
+const exampleProblem = () => import('@/components/extract/example_problem.vue')
+const MyBigMath = () => import('@/components/together/MyBigMath.vue')
+const BigClass = () => import('@/components/together/BigClass.vue')
+const modelingInfo = () => import('@/components/extract/math_model/modeling_info.vue')
+const modelingAdvance = () => import('@/components/extract/math_model/modeling_advance.vue')
+const modelingHigh = () => import('@/components/extract/math_model/modeling_high.vue')
+const homeworkPlay = () => import('@/components/interact/BigMathWorld/homework_play.vue')
+const articleUP = () => import('@/components/interact/BigMathWorld/article.vue')
+const ProblemUpload = () => import('@/components/interact/BigMathWorld/ProblemUpload.vue')
+const theOneHomework = () => import('@/components/interact/BigMathWorld/homework/theOneHomework.vue')
+const CompetitiveIndex = () => import('@/components/interact/rank/CompetitiveIndex')
+const BigEfficiency = () => import('@/components/interact/rank/BigEfficiency')
+const Liveness = () => import('@/components/interact/rank/Liveness')
+const onLineTime = () => import('@/components/interact/rank/onLineTime')
+const IntegralRanking = () => import('@/components/interact/rank/IntegralRanking')
+const Login = () => import('@/components/allviews/Login.vue')
+const BigMathGraph = () => import('@/components/together/myBigMathViews/BigMathGraph.vue')
+const StudyAbility = () => import('@/components/together/myBigMathViews/StudyAbility.vue')
+const ChatRoom = () => import('@/components/together/myBigClass/ChatRoom.vue')
+const makeFriend = () => import('@/components/together/myBigClass/makeFriend.vue')
+const MyBigClass = () => import('@/components/together/myBigClass/MyBigClass.vue')
+const Announcement = () => import('@/components/allviews/announcement.vue')
 const ProblemSet = () => import('@/components/extract/ProblemSet')
 Vue.use(Router)
 

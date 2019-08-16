@@ -183,12 +183,12 @@ export default {
   },
   methods: {
     turnToProblem () {
-      this.$router.replace({
+      this.$router.push({
         path: '/problem'
       })
     },
     turnToProblem_model () {
-      this.$router.replace({
+      this.$router.push({
         path: '/problem-model'
       })
     }

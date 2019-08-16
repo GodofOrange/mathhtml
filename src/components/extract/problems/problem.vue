@@ -2,6 +2,7 @@
   <div id="problem">
     <div class="problem-title">
       <el-row>
+        <el-col :span="2"><el-button type="info" icon="el-icon-back" @click="goback"></el-button></el-col>
         <el-col :span="6"><h3>1.微积分</h3>
           <span>难度：</span>
             <el-rate
@@ -19,7 +20,7 @@
           <el-tag type="danger" style="margin-top: 4%">微积分</el-tag>
           <el-tag type="danger" style="margin-top: 4%">10人提交题解</el-tag>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="6">
           <el-button-group>
           <el-button type="primary" icon="el-icon-share" style="margin-top: 3%">分享此题</el-button>
           <el-button type="primary" icon="el-icon-star-off" style="margin-top: 3%">收藏此题</el-button>
@@ -35,7 +36,7 @@
     </div>
     <el-divider/>
     <div class="answer-body">
-      <h3>回答主体</h3>
+      <h3>选填回答主体</h3>
       <el-row :gutter="20">
         <el-col :span="4"><el-input placeholder="请输入内容"></el-input></el-col>
         <el-col :span="4"><el-button type="primary">提交答案</el-button></el-col>
@@ -44,10 +45,16 @@
     <el-divider/>
     <div class="comment-body">
       <el-row>
-      <el-col :span="12"><h3>评论主体</h3></el-col>
-      <el-col :span="12"><el-button type="primary" style="margin-top: 10px;float: right">提交评论</el-button></el-col>
+      <el-col :span="12"><h3>证明题回答主体</h3></el-col>
+      <el-col :span="12"><el-button type="primary" style="margin-top: 10px;float: right">提交答案</el-button></el-col>
       </el-row>
       <iframe src="http://www.baldorange.cn:8111/myeditor/1.html" name="editor" style="width: 100%" scrolling="no" height="500px" frameborder="0"></iframe>
+    </div>
+    <el-divider/>
+    <div>
+      <el-row>
+        <el-col :span="12"><h3>评论区</h3></el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -72,6 +79,9 @@ export default {
         .catch(function (res) {
           console.log(res)
         })
+    },
+    goback () {
+      this.$router.go(-1)
     }
   }
 }

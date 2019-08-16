@@ -32,9 +32,9 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       if (key === '1') {
-        this.$router.replace('/community/BigMathWorld/MyBigMath/BigMathGraph')
+        this.$router.push('/community/BigMathWorld/MyBigMath/BigMathGraph')
       } else if (key === '2') {
-        this.$router.replace('/community/BigMathWorld/MyBigMath/StudyAbility')
+        this.$router.push('/community/BigMathWorld/MyBigMath/StudyAbility')
       }
     }
   }

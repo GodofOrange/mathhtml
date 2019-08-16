@@ -34,8 +34,8 @@
     </el-submenu>
     <el-menu-item index="7"><i class="el-icon-document"></i>阅读</el-menu-item>
     <el-menu-item index="8"><i class="el-icon-notebook-2"></i>作业</el-menu-item>
-    <el-menu-item index="12" class="right">我的信息(登录页面)</el-menu-item>
-    <el-menu-item index="13" class="right">头像</el-menu-item>
+    <el-menu-item index="12" style="float: right">我的信息(登录页面)</el-menu-item>
+    <el-menu-item index="13" style="float: right">头像</el-menu-item>
     </el-menu>
     </div>
     <transition name="el-fade-in"><router-view/></transition>
@@ -52,7 +52,7 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       if (key === '2-2') {
-        this.$router.replace({
+        this.$router.push({
           path: '/problem_set'
         })
       } else if (key === '1') {
@@ -60,63 +60,63 @@ export default {
           path: '/'
         })
       } else if (key === '2-1') {
-        this.$router.replace({
+        this.$router.push({
           path: '/contest'
         })
       } else if (key === '7') {
-        this.$router.replace({
+        this.$router.push({
           path: '/read'
         })
       } else if (key === '8') {
-        this.$router.replace({
+        this.$router.push({
           path: '/homework'
         })
       } else if (key === '2-4-1') {
-        this.$router.replace({
+        this.$router.push({
           path: '/modeling'
         })
       } else if (key === '3-2') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/ask_and_answer'
         })
       } else if (key === '3-1') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/BigMath'
         })
       } else if (key === '3-3') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/community_rank'
         })
       } else if (key === '2-3') {
-        this.$router.replace({
+        this.$router.push({
           path: '/problems/example_problem'
         })
       } else if (key === '4-1') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/BigMathWorld/MyBigMath'
         })
       } else if (key === '4-2') {
-        this.$router.replace({
+        this.$router.push({
           path: '/community/community/BigClass'
         })
       } else if (key === '2-4-2') {
-        this.$router.replace({
+        this.$router.push({
           path: '/extract/modeling_info'
         })
       } else if (key === '2-4-3') {
-        this.$router.replace({
+        this.$router.push({
           path: '/extract/modeling_advance'
         })
       } else if (key === '2-4-4') {
-        this.$router.replace({
+        this.$router.push({
           path: '/extract/modeling_high'
         })
       } else if (key === '12') {
-        this.$router.replace({
+        this.$router.push({
           path: '/login'
         })
       } else if (key === '0') {
-        this.$router.replace({
+        this.$router.push({
           path: '/announcement'
         })
       }
@@ -126,11 +126,4 @@ export default {
 </script>
 
 <style scoped>
-  #my-el-nav{
-
-  }
-  .right{
-    position:relative;
-    float: right;
-  }
 </style>
