@@ -18,7 +18,7 @@
         <el-menu-item index="2-4-1">数学建模介绍</el-menu-item>
         <el-menu-item index="2-4-2">数学建模基础</el-menu-item>
         <el-menu-item index="2-4-3">数学建模进阶</el-menu-item>
-        <el-menu-item index="2-4-3">数学建模实战</el-menu-item>
+        <el-menu-item index="2-4-4">数学建模实战</el-menu-item>
       </el-submenu>
     </el-submenu>
     <el-submenu index="3">

@@ -1,5 +1,7 @@
 <template>
-    <div>实战·</div>
+    <div>
+      实战
+    </div>
 </template>
 
 <script>
