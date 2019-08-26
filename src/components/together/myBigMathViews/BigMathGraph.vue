@@ -24,6 +24,7 @@
 require('echarts/lib/component/tooltip')
 require('echarts/lib/chart/graph')
 require('echarts/lib/component/legend')
+require('echarts/lib/chart/pie')
 export default {
   name: 'BigMathGraph',
   data () {

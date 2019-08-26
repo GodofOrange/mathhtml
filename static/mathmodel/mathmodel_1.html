@@ -1,0 +1,185 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title># 常见分析方法</title>
+        <meta charset="utf-8" />
+        <style type="text/css">
+                html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0}body{font-family:Helvetica,arial,freesans,clean,sans-serif;font-size:14px;line-height:1.6;color:#333;background-color:#fff;padding:20px;max-width:960px;margin:0 auto}body>*:first-child{margin-top:0 !important}body>*:last-child{margin-bottom:0 !important}p,blockquote,ul,ol,dl,table,pre{margin:15px 0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:bold;-webkit-font-smoothing:antialiased}h1 tt,h1 code,h2 tt,h2 code,h3 tt,h3 code,h4 tt,h4 code,h5 tt,h5 code,h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}body>h2:first-child,body>h1:first-child,body>h1:first-child+h2,body>h3:first-child,body>h4:first-child,body>h5:first-child,body>h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1+p,h2+p,h3+p,h4+p,h5+p,h6+p{margin-top:10px}a{color:#4183c4;text-decoration:none}a:hover{text-decoration:underline}ul,ol{padding-left:30px}ul li>:first-child,ol li>:first-child,ul li ul:first-of-type,ol li ol:first-of-type,ul li ol:first-of-type,ol li ul:first-of-type{margin-top:0}ul ul,ul ol,ol ol,ol ul{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:bold;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt>:first-child{margin-top:0}dl dt>:last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd>:first-child{margin-top:0}dl dd>:last-child{margin-bottom:0}pre,code,tt{font-size:12px;font-family:Consolas,"Liberation Mono",Courier,monospace}code,tt{margin:0;padding:0;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre>code{margin:0;padding:0;white-space:pre;border:0;background:transparent}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:0}blockquote{border-left:4px solid #DDD;padding:0 15px;color:#777}blockquote>:first-child{margin-top:0}blockquote>:last-child{margin-bottom:0}hr{clear:both;margin:15px 0;height:0;overflow:hidden;border:0;background:transparent;border-bottom:4px solid #ddd;padding:0}table th{font-weight:bold}table th,table td{border:1px solid #ccc;padding:6px 13px}table tr{border-top:1px solid #ccc;background-color:#fff}table tr:nth-child(2n){background-color:#f8f8f8}img{max-width:100%}
+        </style>
+        </head>
+        <body>
+        <h1>常见分析方法</h1>
+<p><strong>数学建模中常见的分析方法：</strong>类比法、二分法、量纲分析法、差分法、变分法、图论法、层次分析法、数据拟合法、回归分析法、数学规划（线性规划，非线性规划，整数规划，动态规
+划，目标规划）、机理分析、排队方法、对策方法、决策方法、模糊评判方法、时间序列方法、灰色理论方法、现代优化算法（禁忌搜索算法，模拟退火算法，遗传算法，神经网络）<br />下面介绍分别介绍一些方法，有详细的有略写的。</p>
+<p><a name="Rvg5N"></a></p>
+<h2>01 类比法</h2>
+<p>即是将一类事物的某些相同方面进行比较，以另一事物的正确或谬误证明这一事物的正确或谬误。这是运用类比推理形式进行论证的一种方法。</p>
+<p><a name="OwJ6y"></a></p>
+<h2>02 二分法</h2>
+<p>用二分法求方程的近似解是《普通高中数学课程标准》的必修内容之一。利用平分区间及无限逼近的数学思想,是对解析性较好的一元函数避开其复杂运算、近似地计算、有效的解题,是一种行之有效的算法。<br />量纲分析法：
+&gt; _<strong>a、</strong><em>一般用在物理模型中：首先有一些规定的物理量的量纲；
+&gt; </em><strong>b、</strong>_其次与对一般的物理模型，例如单摆运动：在列出摆动周期t的表达式之后，可以通过使用量纲齐次原则，求出对应的表达式的指数。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/277167/1566198994944-858e7236-3784-4d4b-94ab-8c1bf6e80702.png#align=left&amp;display=inline&amp;height=289&amp;originHeight=289&amp;originWidth=448&amp;size=0&amp;status=done&amp;width=448" alt="" /></p>
+<p><a name="E8WkU"></a></p>
+<h2>03 差分法</h2>
+<p>即差分方程模型，差分方程模型最重要的作用在于，当我们在解微分方程的时候，有时候微分方程很难直接解，那么这个时候，我们就可以将微分方程的连续化变成离散的。通过找到一个递推式和知道初始条件，那么就可以近似的求解出微分方程的最终解。</p>
+<p><a name="SFdKd"></a></p>
+<h2>04 变分法</h2>
+<p>变分法[1]是17世纪末发展起来的一门数学分支，是处理函数的数学领域，和处理数的函数的普通微积分相对。它最终寻求的是极值函数：它们使得泛函取得极大或极小值。变分法起源于一些具体的物理学问题，最终由数学家研究解决。有些曲线上的经典问题采用这种形式表达：一个例子是<a href="https://baike.baidu.com/item/%E6%9C%80%E9%80%9F%E9%99%8D%E7%BA%BF/8064682">最速降线</a>，在重力作用下一个粒子沿着该路径可以在最短时间从点A到达不直接在它底下的一点B。在所有从A到B的曲线中必须极小化代表下降时间的表达式。</p>
+<p><a name="QgsXk"></a></p>
+<h2>05 图论法</h2>
+<p>图论可用于解决“<a href="https://www.baidu.com/s?wd=%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao">最短路问题</a>”“<a href="https://www.baidu.com/s?wd=%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao">指派问题</a>”“中国邮递员问题”“<a href="https://www.baidu.com/s?wd=%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao">旅行商问题</a>”“运输问题”等问题。</p>
+<p><a name="an2fN"></a></p>
+<h2>06 回归分析法</h2>
+<p>对具有相关关系的现象，根据其关系形态，选择一个合适的数学模型，用来近似地表示变量间的平均变化关系的一种统计方法 （一元线性回归、多元线性回归、非线性回归），回归分析在一组数据的基础上研究这样几个问题：建立因变量与自变量之间的回归模型（经验公式）；对回归模型的可信度进行检验；判断每个自变量对因变量的影响是否显著；判断回归模型是否适合这组数据；利用回归模型对进行预报或控制。相对应的有 线性回归、多元二项式回归、非线性回归。</p>
+<p><a name="ktNDx"></a></p>
+<h2>07 时序分析法</h2>
+<p>时间序列是按时间顺序排列的、随时间变化且相互关联的数据序列—通过对预测目标自身间序列的处理，来研究其变化趋势（长期趋势变动、季节变动、循环变动、不规则变动）。</p>
+<p><a name="m5TNK"></a></p>
+<h2>08 机理分析</h2>
+<p>用经典的数学工具分析现象的因果关系。什么是经典的数学工具：人口模型（增长速率先上升后下降），相变（物理上概念，用在模型上即是某些重要指标突变），博弈论（囚徒困境），微分方程（人口模型是其特例），网络传播（扩散现象）<br />举例：我们发现英语学习中存在瓶颈现象（顶线现象），那我们第一反应就是人口模型去建模。</p>
+<p><a name="ERFya"></a></p>
+<h2>09 模糊评价方法</h2>
+<p>研究和处理模糊性现象的数学 （概念与其对立面之间没有一条明确的分界线）与模糊数学相关的问题：模糊分类问题—已知若干个相互之间不分明的模糊概念，需要判断某个确定事物用哪一个模糊概念来反映更合理准确；模糊相似选择 —按某种性质对一组事物或对象排序是一类常见的问题，但是用来比较的性质具有边界不分明的模糊性；模糊聚类分析—根据研究对象本身的属性构造模糊矩阵，在此基础上根据一定的隶属度来确定其分类关系 ；模糊层次分析法—两两比较指标的确定；模糊综合评判—综合评判就是对受到多个因素制约的事物或对象作出一个总的评价，如产品质量评定、科技成果鉴定、某种作物种植适应性的评价等，都属于综合评判问题。由于从多方面对事物进行评价难免带有模糊性和主观性，采用模糊数学的方法进行综合评判将使结果尽量客观从而取得更好的实际效果 。</p>
+<p><a name="45Zlb"></a></p>
+<h2>10 层次分析法</h2>
+<p>层次分析法[2]根据问题的性质和要达到的总目标，将问题分解为不同的组成因素，并按照因素间的相互关联影响以及隶属关系将因素按不同层次聚集组合，形成一个多层次的分析结构模型，从而最终使问题归结为最底层（供决策的方案、措施等）相对于最高层（总目标）的相对重要权重的确定或相对优劣次序的排定。</p>
+<p><a name="EPqZT"></a></p>
+<h3>一致矩阵法</h3>
+<p>一致矩阵法，听起来好像很难的样子，其实不然，实际上就是一种将人们对事物的主观感觉用数学的形式表达的方法。比如说有三种水果，苹果、香蕉和芒果。对博主而言，我觉得芒果是我的最爱，香蕉其次，苹果排最后，那么根据我的喜好程度可以列出芒果&gt;香蕉&gt;苹果的顺序。但是在数学建模中，我们总不能直接这样讲，这样讲没有数字出现，别人不愿意接受。因此，一致矩阵法就是针对这种情况而产生的。好了，接下来是枯燥的内容了，大家要准备好了哦。<br />　　一致矩阵法的核心思想有两个：</p>
+<ul>
+<li><strong>不把所有的因素放在一起比较，而是两两互相比较</strong></li>
+<li><strong>采用相对尺度，以尽可能减少性质不同的诸因素相互比较的困难，以提高准确度。</strong></li>
+</ul>
+<p>　　首先大家要了解一个表，叫成对比较阵标度表，如下图所示：</p>
+<p><strong>成对比较阵标度表</strong></p>
+<table>
+<thead>
+<tr><th align="left">1</th><th align="left">表示两个因素相比，具有同样重要性</th></tr>
+</thead>
+<tbody>
+<tr><td align="left">3</td><td align="left">表示两个因素相比，一个因素比另一个因素稍微重要</td></tr>
+<tr><td align="left">5</td><td align="left">表示两个因素相比，一个因素比另一个因素明显重要</td></tr>
+<tr><td align="left">7</td><td align="left">表示两个因素相比，一个因素比另一个因素强烈重要</td></tr>
+<tr><td align="left">9</td><td align="left">表示两个因素相比，一个因素比另一个因素极端重要</td></tr>
+<tr><td align="left">2， 4， 6， 8</td><td align="left">上述两相移判断的中值</td></tr>
+<tr><td align="left">倒数</td><td align="left">因素i与j比较的判断a，则因素j与i比较的判断aji=1/aij</td></tr>
+</tbody>
+</table>
+<p>简单讲，像我前面说的，我自己觉得好吃程度是芒果 &gt; 香蕉 &gt; 苹果，那么，根据一致矩阵法，我需要创建一个3×3的矩阵，首先我先假定芒果= C1，香蕉= C2，苹果= C3，则</p>
+<table>
+<thead>
+<tr><th align="left"> </th><th align="left"><strong>C1</strong></th><th align="left"><strong>C2</strong></th><th align="left"><strong>C3</strong></th></tr>
+</thead>
+<tbody>
+<tr><td align="left"><strong>C1</strong></td><td align="left">1</td><td align="left">3</td><td align="left">7</td></tr>
+<tr><td align="left"><strong>C2</strong></td><td align="left">1/3 </td><td align="left"> 1</td><td align="left">5 </td></tr>
+<tr><td align="left"><strong>C3</strong></td><td align="left">1/7 </td><td align="left">1/5 </td><td align="left"> 1</td></tr>
+</tbody>
+</table>
+<p> <br />首先我们看<strong>第一行</strong>，1 3 7 分别表示：<br />　　<strong>1：</strong>C1跟C1相比，是具有同样重要（这不是废话吗，芒果跟芒果当然一样好吃啦）；<br />　　<strong>3：</strong>C1跟C2相比，稍微重要（即我觉得芒果比香蕉好吃一些）；<br />　　<strong>7：</strong>C1跟C3相比，强烈重要（即我觉得芒果比苹果好吃太多了）；<br />接着看第二行：为什么有一个1/3呢，这是表示：<br />　　C2跟C1相比的值，应该等于C1跟C2相比的倒数（这是规定）；<br />　　因此，在根据我们的主观意识给这个矩阵填好相应的系数后，再根据倒数规则补充剩下的空格。就能完成我们这个一致性矩阵。<br />　　也许大家会讲，那这个主观意识很重要诶。是的没错，层次分析法其实就是一种比较主观的方法。所以，在填入你所需要的标度数时，尽量查阅多一些文献，这样结果会更加准确。</p>
+<p>其中：</p>
+<ul>
+<li><strong>最高层</strong>：决策的目的、要解决的问题</li>
+<li><strong>最底层</strong>：决策时的备选方案</li>
+<li><strong>中间层</strong>：考虑的因素、决策的准则。</li>
+</ul>
+<p>  　　好了，现在我们来举例说明究竟这个“层次分析法”是什么以及如何构架一个层次结构模型吧。。<br /><strong>问题：</strong>【选择旅游地】如何在3个目的地按照景色、费用、居住条件等因素进行选择。<br /><strong>解法：</strong><br />　　1.首先，在这个问题中，我们要解决的问题就是选择旅游地，不妨设为Z，这就是我们的最高层 = Z；<br />　　2.接着，在题目中，我们旅游地的可选择只有三个，分别设为B1，B2，B3。这就是我们的最底层；<br />　　3.最后就是我们的中间层，根据定义，中间层就该是景色、费用、居住、饮食、旅途这些条件，分别设为A1，A2，A3，A4，A5。<br />　　接下来我们就开始构建层次模型吧。如下图所示</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/277167/1566200345672-498efe31-87b3-4f1d-be4f-889faf42c1ad.png#align=left&amp;display=inline&amp;height=181&amp;originHeight=314&amp;originWidth=877&amp;size=0&amp;status=done&amp;width=506" alt="" />　　</p>
+<p>大家这时候应该体会到了层次分析法是什么样的一种方法了吧。如果这时还不明白的请看回官方定义。<br />　　通过计算出各个层之间的权重，根据权重来得出我们要的结果。<br />　　那么权重该如何确定，大家还记得前面说的一致矩阵法吗，我们需要通过一致矩阵法写出成对比较矩阵，然后将成对比较矩阵代入我们的一个matlab的代码里面，就能算出权重了。</p>
+<p><a name="p8VrI"></a></p>
+<h3><a href=""></a>确定权重</h3>
+<pre><code class="matlab">disp('请输入判断矩阵A(n阶)');
+A = input('A = ');
+[n, n] = size(A);
+x = ones(n, 100);
+y = ones(n, 100);
+m = zeros(1, 100);
+m(1) = max(x(:, 1));
+y(:, 1) = x(:, 1);
+x(:, 2) = A * y(:, 1);
+m(2) = max(x(:, 2));
+y(:, 2) = x(:, 2)/m(2);
+p = 0.0001;i = 2;k = abs(m(2) - m(1));
+while  k &gt; p
+i = i+1;
+x(:, i) = A * y(:, i - 1);
+m(i) = max(x(:, i));
+y(:, i) = x(:, i)/m(i);
+k = abs(m(i) - m(i - 1));
+end
+a = sum(y(:, i));
+w = y(:, i)/a;
+t = m(i);
+disp(w);
+%以下是一致性检验（暂时不讲解这个概念，下次再补充）
+CI = (t - n)/(n - 1);   RI = [0 0 0.52 0.89 1.12 1.26 1.36 1.41 1.46 1.49 1.52 1.54 1.56 1.58 1.59];
+CR = CI/RI(n);
+if CR &lt; 0.10
+disp('此矩阵的一致性可以接受!');
+disp('CI = ');  disp(CI);
+disp('CR = ');  disp(CR);
+end
+</code></pre>
+<p>只要将成对检验理论输入我们的MATLAB代码，就能求解出权重。<br />　　就B1对总目标的权重来说，其计算公式应该为O1 = B1对A1的权重×A1对Z的权重+……+B1对A5的权重×A5对Z的权重(5项)。<br />　　接着我们只要分别也算出B2和B3对总目标的权重O2和O3。最后比较O1、O2和O3的大小即可。<br />　　我们假设最后算出的结果是O3  &gt; O1  &gt; O2。那么最后的决策应是去B3。</p>
+<p><a name="yfTY2"></a></p>
+<h2>11 多属性决策模型</h2>
+<p>首先，什么是多属性决策[3]呢，它指的是利用已有的决策信息通过移动的方式对一组（有限个）备选方案进行排序或者择优。它的主要组成部分有如下2种：</p>
+<ul>
+<li>获取决策信息：属性权重和属性值（实数、区间数和语言）。</li>
+<li>通过一定的方式对决策信息进行集结并对方案进行排序和择优</li>
+</ul>
+<p>现在我们暂时先抛开属性权重和属性值不讲，我们先来讲一讲第二点，也就是如何对决策的信息进行集结。信息集结的方法有很多，包括</p>
+<ul>
+<li><strong>加权算术平均算子（WAA）</strong></li>
+<li><strong>加权几何平均算子（WGA）</strong></li>
+<li><strong>有序加权平均算子（OWA）</strong></li>
+</ul>
+<p>在本文中，我们只讲一下<strong>加权算术平均算子（WAA）</strong>，以后有机会再补充剩下两个。</p>
+<p><a name="JFuXJ"></a></p>
+<h3><a href=""></a>加权算术平均算子</h3>
+<p>　　对于一组给定的数据：<img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450140-df812b4e-757d-4839-af37-2f0c0feb6b1a.gif#align=left&amp;display=inline&amp;height=18&amp;originHeight=18&amp;originWidth=179&amp;size=0&amp;status=done&amp;width=179" alt="" />，有<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450141-a83140c4-08db-4545-afa9-54f628eb6937.gif#align=left&amp;display=inline&amp;height=51&amp;originHeight=51&amp;originWidth=257&amp;size=0&amp;status=done&amp;width=257" alt="" /></p>
+<p>　　其中，<img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450217-f5850c6d-d7ea-47e8-a4bd-399b20a2c237.gif#align=left&amp;display=inline&amp;height=21&amp;originHeight=21&amp;originWidth=132&amp;size=0&amp;status=done&amp;width=132" alt="" />是数据组<img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450118-a074e47c-b257-415d-8eba-cd12a490a258.gif#align=left&amp;display=inline&amp;height=18&amp;originHeight=18&amp;originWidth=111&amp;size=0&amp;status=done&amp;width=111" alt="" />的权重向量，<img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200451091-be40807a-ef43-41e4-b7ee-24025db2e123.gif#align=left&amp;display=inline&amp;height=18&amp;originHeight=18&amp;originWidth=149&amp;size=0&amp;status=done&amp;width=149" alt="" />，则称<br />　　WAA为<strong>加权算术平均算子</strong>（weighted arithemetic averaging(WAA) operator）。<br /><strong>　　举例来讲：</strong>博主所在的大学大一的统考期末科目有高数、线代、电路、大英（当然还有其他，但是这里就不讲了），其中博主的得分数据组为（95,98,98,90），而这四门科目的学分分别为（5.5,3,2,4），那么可以算出权重向量（每门科目的学分除以总学分）为(0.38,0.21,0.14,0.27)T，那么可以算出博主大一期末的加权平均综合得分为<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450217-5d025bf0-bf9e-4bc3-999f-943a17197d71.gif#align=left&amp;display=inline&amp;height=18&amp;originHeight=18&amp;originWidth=567&amp;size=0&amp;status=done&amp;width=567" alt="" /><br />　　像上述的<strong>属性值</strong>就是<strong>博主的得分数据组</strong>，我们知道，得分当然是越高越好，这样的属性值类型也称为<strong>效益型</strong>；但也有些其他的属性值可能是数值越低越好，这类属性类型称为<strong>成本型</strong>，比如某公司的某件产品的生产价格；还有一些其他的，都在下面列出：</p>
+<ul>
+<li><strong>效益型</strong>：属性值越大越好（比如利润）；</li>
+<li><strong>成本型</strong>：属性值越小越好（比如成本价）；</li>
+<li><strong>固定型</strong>：属性值越接近某个固定值α越好（生产标注宽度）；</li>
+<li><strong>偏离型</strong>：属性值越偏离某个固定值β越好；</li>
+<li><strong>区间型</strong>：属性值越接近某个固定区间[q1,q2]越好；</li>
+<li><strong>偏离区间型</strong>：属性值越偏离某个固定区间[q1,q2]越好；</li>
+</ul>
+<p>　　那么如果在一堆数据中，可能有些是效益型的，有些是成本型的，这样的数据量纲不同，就会影响到决策的结果，因此，我们需要对属性数据进行规范化处理。具体的处理方案根据不同的属性类型不同，如下：<br /><strong>　　效益型</strong>：属性值越大越好（比如利润）：<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450169-f588d7fd-078a-44eb-9295-375bd78ef5b8.gif#align=left&amp;display=inline&amp;height=56&amp;originHeight=56&amp;originWidth=313&amp;size=0&amp;status=done&amp;width=313" alt="" /><br /><strong>　　成本型</strong>：属性值越小越好（比如成本价）：<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450306-4505c4cf-63f7-49d1-8f4e-1f31e3bb48b2.gif#align=left&amp;display=inline&amp;height=56&amp;originHeight=56&amp;originWidth=309&amp;size=0&amp;status=done&amp;width=309" alt="" /><br /><strong>　　固定型：</strong>属性值越接近某个固定值α越好（生产标注宽度）：<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450226-16bff3a1-6803-41e9-8b21-0b0003c9c132.gif#align=left&amp;display=inline&amp;height=44&amp;originHeight=44&amp;originWidth=184&amp;size=0&amp;status=done&amp;width=184" alt="" /><br /><strong>　　偏离型</strong>：属性值越偏离某个固定值β越好：<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450216-4e08b1d7-854b-4807-b891-39e1208c4af6.gif#align=left&amp;display=inline&amp;height=58&amp;originHeight=58&amp;originWidth=369&amp;size=0&amp;status=done&amp;width=369" alt="" /><br /><strong>　　区间型</strong>：属性值越接近某个固定区间[q1,q2]越好；<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450297-bcfebc8b-9b68-485b-8948-80bdf04cccec.gif#align=left&amp;display=inline&amp;height=77&amp;originHeight=77&amp;originWidth=412&amp;size=0&amp;status=done&amp;width=412" alt="" /><br /> <br /><strong>　　偏离区间型</strong>：属性值越偏离某个固定区间[q1,q2]越好；<br /> <img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450246-b6ae2f25-fb13-4031-8587-76e1854221e9.gif#align=left&amp;display=inline&amp;height=77&amp;originHeight=77&amp;originWidth=380&amp;size=0&amp;status=done&amp;width=380" alt="" /><br /> <br />　　通过将不同属性类型的属性值经过上述公式规范化为统一量纲的数值就，就可以使用我们前面说的加权算术平均算子了。接来来用一个实例来描述多属性决策模型在投资上的应用。</p>
+<p><a name="WJ2sr"></a></p>
+<h3><a href=""></a>建模举例</h3>
+<p><strong>问题：</strong>某投资银行拟对某市4家企业进行投资，抽取下列5项指标进行评估：产值（万元）、投资成本（万元）、销售额（万元）、国家收益币种、环境污染程度。投资银行考查了上年度4家企业的上述指标情况（其中污染程度由环保部门及时检测并量化），所得评估结果如下表所示。在各项指标中，投资成本、环境污染程度为成本型，其他为效益型。属性权重信息完全未知，试确定最佳投资方案。<br /><strong>解法：</strong><br /><strong>　　1.</strong>先写出归一化处理前的决策矩阵（题目已给出的那个表，博主懒得画两遍就在这里显示吧hh），其中<strong>x</strong>表示企业<strong>，u1</strong>到<strong>u5</strong>表示产值（万元）、投资成本（万元）、销售额（万元）、国家收益币种、环境污染程度这5项指标，则<br /><strong>归一化处理前的决策矩阵</strong></p>
+<table>
+<thead>
+<tr><th align="left"> </th><th align="left">u1</th><th align="left">u2</th><th align="left">u3</th><th align="left">u4</th><th align="left">u5</th></tr>
+</thead>
+<tbody>
+<tr><td align="left">x1</td><td align="left">8350</td><td align="left">5300</td><td align="left">6135</td><td align="left">0.82</td><td align="left">0.17</td></tr>
+<tr><td align="left">x2</td><td align="left">7455</td><td align="left">4952</td><td align="left">6527</td><td align="left">0.65</td><td align="left">0.13</td></tr>
+<tr><td align="left">x3</td><td align="left">11000</td><td align="left">8001</td><td align="left">9008</td><td align="left">0.59</td><td align="left">0.15</td></tr>
+<tr><td align="left">x4</td><td align="left">9624</td><td align="left">5000</td><td align="left">8892</td><td align="left">0.74</td><td align="left">0.28</td></tr>
+</tbody>
+</table>
+<p><strong>　　2.</strong>根据我们前面起到的归一化公式，将上述指标值代入相应的公式，就能得到归一化处理后的决策矩阵，如下：<br /> <strong>归一化处理后的决策矩阵</strong></p>
+<table>
+<thead>
+<tr><th align="left"> </th><th align="left"> u1</th><th align="left">u2 </th><th align="left">u3</th><th align="left">u4 </th><th align="left">u5 </th></tr>
+</thead>
+<tbody>
+<tr><td align="left">x1 </td><td align="left"> 0.7455</td><td align="left">0.9343</td><td align="left">0.6811</td><td align="left">1.0000</td><td align="left">0.7647</td></tr>
+<tr><td align="left">x2 </td><td align="left"> 0.6777</td><td align="left">1.0000</td><td align="left">0.7246</td><td align="left">0.7926</td><td align="left">1.0000</td></tr>
+<tr><td align="left">x3 </td><td align="left"> 1.0000</td><td align="left"> 0.6189</td><td align="left">1.0000 </td><td align="left">0.7195 </td><td align="left">0.8667</td></tr>
+<tr><td align="left">x4 </td><td align="left"> 0.8749</td><td align="left">0.9904</td><td align="left">0.9871</td><td align="left"> 0.9024</td><td align="left">0.4643 </td></tr>
+</tbody>
+</table>
+<p><strong>　　3.</strong>接下来我们需要应用到上一节用到的知识了，就是构建成对比较矩阵，为什么呢。大家还记得2.1讲的东西吗，其中第一点的决策信息就包括两部分——属性权重和属性值，现在我们已经求出归一化后的属性值了，我们还不知道属性的权重是多少，因此，我们需要通过构建成对比较矩阵，再将成对矩阵输入到我们的MATLAB程序里面，就能求出属性的权重了。为此，我们先写出成对比较矩阵，如下：<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450235-c3c54d41-2122-4b34-bce9-dadba547d143.gif#align=left&amp;display=inline&amp;height=111&amp;originHeight=111&amp;originWidth=179&amp;size=0&amp;status=done&amp;width=179" alt="" /><br /> <br />　　将上述矩阵代入我们的matlab代码（上一节层次分析法的代码）里，就能得到u1到u5的权重分别为：[0.4286, 0.1429, 0.1429, 0.1429, 0.1429].<br />　　4.现在我们有了属性权重和归一化的属性值了，就可以利用加权算术平均算子了，分别能算出4个企业的加权算术平均值了，如下：<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566200450569-7ffd7edd-169e-471f-9712-a2334a23171e.gif#align=left&amp;display=inline&amp;height=70&amp;originHeight=70&amp;originWidth=386&amp;size=0&amp;status=done&amp;width=386" alt="" /><br />　　在这里我只算出第一个企业的加权算术平均值，剩下三个大家自己照着公式算一下，如果你算得没错，那么答案应该如下（企业1-4的得分分别为）：<br />0.80 0.79 0.89 0.85<br /> 　　显然，应该投资企业3。</p>
+<p><a name="SyEIZ"></a></p>
+<h2>参考资料</h2>
+<p>[1]文中多处查阅百度百科<br />[2]脚丫先生，<a href="https://blog.csdn.net/shujuelin/article/details/82467600">https://blog.csdn.net/shujuelin/article/details/82467600</a>，数学建模方法-层次分析法，2018-09-06<br />[3]脚丫先生，<a href="https://blog.csdn.net/shujuelin/article/details/82467644">https://blog.csdn.net/shujuelin/article/details/82467644</a>，数学建模方法-多属性决策模型，2018-09-06</p>
+
+        <!-- Use style in style1-->
+        </body>
+        </html>

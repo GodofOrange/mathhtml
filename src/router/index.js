@@ -33,6 +33,10 @@ const makeFriend = () => import('@/components/together/myBigClass/makeFriend.vue
 const MyBigClass = () => import('@/components/together/myBigClass/MyBigClass.vue')
 const Announcement = () => import('@/components/allviews/announcement.vue')
 const ProblemSet = () => import('@/components/extract/ProblemSet')
+const modeling1 = () => import('@/components/extract/math_model/modeling_dev/modeling_1.vue')
+const modeling2 = () => import('@/components/extract/math_model/modeling_dev/modeling_2.vue')
+const modeling3 = () => import('@/components/extract/math_model/modeling_dev/modeling_3.vue')
+const modeling4 = () => import('@/components/extract/math_model/modeling_dev/modeling_4.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -124,7 +128,11 @@ export default new Router({
     {
       path: '/extract/modeling_info',
       name: 'modeling_info',
-      component: modelingInfo
+      component: modelingInfo,
+      children: [{path: 'modeling_1', component: modeling1},
+        {path: 'modeling_2', component: modeling2},
+        {path: 'modeling_3', component: modeling3},
+        {path: 'modeling_4', component: modeling4}]
     },
     {
       path: '/extract/modeling_advance',
