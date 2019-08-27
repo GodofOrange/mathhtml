@@ -7,51 +7,14 @@
     </div>
     <div style="margin-top: 20px">
     <el-row :gutter="20">
-      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
-      <el-card :body-style="{ padding: '0px' }" shadow="hover">
-        <img src="@/assets/Lesson.jpg" class="image">
-        <div style="padding: 10px;">
-          <span>短板题库</span>
-          <div class="bottom">
-            <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
-          </div>
-        </div>
-      </el-card>
-    </el-col>
-      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
-        <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img src="@/assets/mathmodel-example.jpg" class="image">
+      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" v-for="(problemClassify,key) in problemClassifies" :key="key">
+        <el-card :body-style="{ padding: '0px' }" shadow="hover" @click.native="turnToProblem_model(problemClassify.title,problemClassify.id)">
           <div style="padding: 10px;">
-            <span>竞赛模块</span>
-            <div class="bottom">
-              <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
-            </div>
+            <h1 style="text-align: center">{{problemClassify.title}}</h1>
           </div>
         </el-card>
       </el-col>
-      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
-        <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img src="@/assets/mathmodel-example.jpg" class="image">
-          <div style="padding: 10px;">
-            <span>考研模块</span>
-            <div class="bottom">
-              <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="20" :sm="10" :md="8" :lg="6" :xl="4" >
-        <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img src="@/assets/mathmodel-example.jpg" class="image">
-          <div style="padding: 10px;">
-            <span>深蓝模块</span>
-            <div class="bottom">
-              <el-button type="text" @click="turnToProblem_model" class="button">进入板块</el-button>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
-      </el-row>
+    </el-row>
     </div>
       <!--分割线-->
       <el-divider></el-divider>
@@ -128,8 +91,8 @@
           <el-table-column prop="id" label="#" column-key="date"></el-table-column>
           <el-table-column prop="title" label="题目标题"></el-table-column>
           <el-table-column prop="percentage" label="通过率"></el-table-column>
-          <el-table-column prop="tag" label="难度"></el-table-column>
-          <el-table-column label="题目链接"><el-button size="mini" @click="turnToProblem">进入</el-button></el-table-column>
+          <el-table-column prop="level" label="难度"></el-table-column>
+          <el-table-column label="题目链接" ><template slot-scope="scope"><el-button size="mini" @click="turnToProblem(scope.row.title, scope.row.id)">进入</el-button></template></el-table-column>
         </el-table>
       </div>
     <div class="block" style="margin-right: 30%;margin-left: 30%">
@@ -148,48 +111,40 @@ export default {
   name: 'ProblemSet',
   data () {
     return {
-      tableData: [{
-        id: '1',
-        title: '微积分',
-        percentage: '30%',
-        tag: '考研'
-      }, {
-        id: '2',
-        title: '导数',
-        percentage: '30%',
-        tag: '基础'
-      }, {
-        id: '3',
-        title: '二重积分',
-        percentage: '30%',
-        tag: '基础'
-      }, {
-        id: '4',
-        title: '导数',
-        percentage: '30%',
-        tag: '基础'
-      }, {
-        id: '5',
-        title: '导数',
-        percentage: '30%',
-        tag: '基础'
-      }, {
-        id: '6',
-        title: '导数',
-        percentage: '30%',
-        tag: '基础'
-      }]
+      tableData: [],
+      problemClassifies: []
     }
   },
+  mounted () {
+    this.$axios({method: 'GET', url: this.$baseUrl + '/Problemset/getAllProblemset'}).then((response) => {
+      this.tableData = response.data // 请求成功返回的数据
+      console.log(this.tableData)
+    }).catch((error) => {
+      console.log(error) // 请求失败返回的数据
+    })
+    this.$axios({method: 'GET', url: this.$baseUrl + '/Problemclassfiy/getAllProblemclassify'}).then((response) => {
+      this.problemClassifies = response.data // 请求成功返回的数据
+    }).catch((error) => {
+      console.log(error) // 请求失败返回的数据
+    })
+  },
   methods: {
-    turnToProblem () {
+    turnToProblem (pstitle, pid) {
       this.$router.push({
-        path: '/problem'
+        path: '/problem',
+        query: {
+          id: pid,
+          title: pstitle
+        }
       })
     },
-    turnToProblem_model () {
+    turnToProblem_model (pstitle, pcid) {
       this.$router.push({
-        path: '/problem-model'
+        path: '/problem-model',
+        query: {
+          id: pcid,
+          title: pstitle
+        }
       })
     }
   }

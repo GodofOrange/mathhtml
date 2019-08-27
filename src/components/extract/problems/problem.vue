@@ -3,7 +3,7 @@
     <div class="problem-title">
       <el-row>
         <el-col :span="2"><el-button type="info" icon="el-icon-back" @click="goback"></el-button></el-col>
-        <el-col :span="6"><h3>1.微积分</h3>
+        <el-col :span="6"><h3>{{title}}</h3>
           <span>难度：</span>
             <el-rate
               v-model="value"
@@ -32,7 +32,7 @@
     </div>
     <el-divider></el-divider>
     <div class="problem-body">
-      <h3>题目主体</h3>
+      {{problem_body}}
     </div>
     <el-divider/>
     <div class="answer-body">
@@ -48,7 +48,7 @@
       <el-col :span="12"><h3>证明题回答主体</h3></el-col>
       <el-col :span="12"><el-button type="primary" style="margin-top: 10px;float: right">提交答案</el-button></el-col>
       </el-row>
-      <iframe src="http://www.baldorange.cn:8111/myeditor/1.html" name="editor" style="width: 100%" scrolling="no" height="500px" frameborder="0"></iframe>
+      <iframe src="static/myeditor/1.html" name="editor" style="width: 100%" scrolling="no" height="500px" frameborder="0"></iframe>
     </div>
     <el-divider/>
     <div>
@@ -64,22 +64,21 @@ export default {
   name: 'problem',
   data () {
     return {
+      title: '呵呵',
       value: 3.7,
-      colors: ['#99A9BF', '#F7BA2A', '#FF9900']
+      colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
+      problem_body: '问题主体'
     }
   },
   mounted () {
+    this.title = this.$route.query.id + '.' + this.$route.query.title
+    this.$axios({method: 'GET', url: this.$baseUrl + '/Problembody/getProblembody?id=' + this.$route.query.id}).then((response) => {
+      this.problem_body = response.data.body // 请求成功返回的数据
+    }).catch((error) => {
+      console.log(error) // 请求失败返回的数据
+    })
   },
   methods: {
-    loadEditor () {
-      this.$ajax.get('http://www.baldorange.cn:8111/myeditor/1.html')
-        .then(function (res) {
-          console.log(res.data)
-        })
-        .catch(function (res) {
-          console.log(res)
-        })
-    },
     goback () {
       this.$router.go(-1)
     }
