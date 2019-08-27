@@ -19,15 +19,15 @@
 <p>1946 年，美国拉斯阿莫斯国家实验室的三位科学家 JohnvonNeumann, Stan Ulam和 Nick Metropolis 共同发明了蒙特卡罗方法。蒙特卡罗方法（Monte Carlo method），又称随机抽样或统计模拟方法，是一种以概率统计理论为指导的一类非常重要的数值计算方法。此方法使用随机数（或更常见的伪随机数）来解决很多计算问题的方法。<br />
 <br />由于传统的经验方法由于不能逼近真实的物理过程，很难得到满意的结果，而蒙特卡罗方法由于能够真实地模拟实际物理过程，故解决问题与实际非常符合，可以得到很圆满的结果。<br />
 <br /><strong>该方法的基本原理及思想：</strong><br />当所求解问题是某种随机事件出现的概率，或者是某个随机变量的期望值时，通过某种“实验”的方法，以这种事件出现的频率估计这一随机事件的概率，或者得到这个随机变量的某些数字特征，并将其作为问题的解。<br />
-<br /><strong>直观了解蒙特卡洛方法：</strong><br />假设我们要计算一个不规则图形的面积，那么图形的不规则程度和分析性计算（比如：积分）的复杂程度是成正比的。蒙特卡洛方法是怎么计算的呢？假想你有一袋豆子，把豆子均匀地朝这个图形上撒，然后数这个图形之中有多少颗豆子，这个豆子的数目就是图形的面积。当你的豆子越小，撒的越多的时候，结果就越精确。在这里我们要假定豆子都在一个平面上，相互之间没有重叠。<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566136168615-dce709d1-0507-42f2-b6e6-14d58d7a2749.gif#align=left&amp;display=inline&amp;height=250&amp;originHeight=500&amp;originWidth=500&amp;size=0&amp;status=done&amp;width=250" alt="" /><br />蒙特卡罗方法通过抓住事物运动的几何数量和几何特征，利用数学方法来加以模拟，即进行一种数字模拟实验。它是以一个概率模型为基础，按照这个模型所描绘的过程，通过模拟实验的结果，作为问题的近似解。<br />蒙特卡罗方法与一般计算方法有很大区别，一般计算方法对于解决多维或因素复杂的问题非常困难，而蒙特卡罗方法对于解决这方面的问题却比较简单。借助计算机技术，蒙特卡罗方法实现了两大优点：
+<br /><strong>直观了解蒙特卡洛方法：</strong><br />假设我们要计算一个不规则图形的面积，那么图形的不规则程度和分析性计算（比如：积分）的复杂程度是成正比的。蒙特卡洛方法是怎么计算的呢？假想你有一袋豆子，把豆子均匀地朝这个图形上撒，然后数这个图形之中有多少颗豆子，这个豆子的数目就是图形的面积。当你的豆子越小，撒的越多的时候，结果就越精确。在这里我们要假定豆子都在一个平面上，相互之间没有重叠。<br /><img src="1566136168615-dce709d1-0507-42f2-b6e6-14d58d7a2749.gif#align=left&amp;display=inline&amp;height=250&amp;originHeight=500&amp;originWidth=500&amp;size=0&amp;status=done&amp;width=250" alt="" /><br />蒙特卡罗方法通过抓住事物运动的几何数量和几何特征，利用数学方法来加以模拟，即进行一种数字模拟实验。它是以一个概率模型为基础，按照这个模型所描绘的过程，通过模拟实验的结果，作为问题的近似解。<br />蒙特卡罗方法与一般计算方法有很大区别，一般计算方法对于解决多维或因素复杂的问题非常困难，而蒙特卡罗方法对于解决这方面的问题却比较简单。借助计算机技术，蒙特卡罗方法实现了两大优点：
 &gt; _<strong>a、</strong><em>简单，省却了繁复的数学推导和演算过程，使得一般人也能够理解和掌握
 &gt; </em><strong>b、</strong>_采用随机抽样的方法，较真切的模拟粒子输运的过程，反映了统计涨落的规律；
 &gt; <strong><em>c、</em></strong>不受系统多维、多因素等复杂性的限制，是解决复杂系统粒子输运问题的好方法
 &gt; 等等</p>
 <p><a name="3rzeg"></a></p>
 <h2>02 <strong>数据拟合、参数估计、插值等数据处理算法</strong></h2>
-<p>我们通常会遇到大量的数据需要处理，而处理数据的关键就在于这些算法，通常使用 Matlab 作为工具。<br />数据拟合在数学建模比赛中中有应用，与图形处理有关的问题很多与拟合有关系，一个例子就是 98 年数学建模美国赛 A 题，生物组织切片的三维插值处理，94 年 A 题逢山开路，山体海拔高度的插值计算，还有吵的沸沸扬扬可能会考的“非典”问题也要用到数据拟合算法，观察数据的走向进行处理。<br /><img src="https://cdn.nlark.com/yuque/0/2019/webp/277167/1566136168690-4b87cf7e-4156-4355-81b5-3c653ec659b0.webp#align=left&amp;display=inline&amp;height=301&amp;originHeight=301&amp;originWidth=373&amp;size=0&amp;status=done&amp;width=373" alt="" /><br />此类问题在 MATLAB 中有很多现成的函数可以调用，熟悉 MATLAB，这些方法都能游刃有余的用好。</p>
-<p>拿94年A题逢山开路举例：<br /><img src="https://cdn.nlark.com/yuque/0/2019/png/277167/1566138569371-cb1178ed-f033-4ee4-b283-bd6c6740ae48.png#align=left&amp;display=inline&amp;height=697&amp;name=image.png&amp;originHeight=871&amp;originWidth=851&amp;size=942735&amp;status=done&amp;width=680.8" alt="image.png" /></p>
+<p>我们通常会遇到大量的数据需要处理，而处理数据的关键就在于这些算法，通常使用 Matlab 作为工具。<br />数据拟合在数学建模比赛中中有应用，与图形处理有关的问题很多与拟合有关系，一个例子就是 98 年数学建模美国赛 A 题，生物组织切片的三维插值处理，94 年 A 题逢山开路，山体海拔高度的插值计算，还有吵的沸沸扬扬可能会考的“非典”问题也要用到数据拟合算法，观察数据的走向进行处理。<br /><img src="1566136168690-4b87cf7e-4156-4355-81b5-3c653ec659b0.webp#align=left&amp;display=inline&amp;height=301&amp;originHeight=301&amp;originWidth=373&amp;size=0&amp;status=done&amp;width=373" alt="" /><br />此类问题在 MATLAB 中有很多现成的函数可以调用，熟悉 MATLAB，这些方法都能游刃有余的用好。</p>
+<p>拿94年A题逢山开路举例：<br /><img src="1566138569371-cb1178ed-f033-4ee4-b283-bd6c6740ae48.png#align=left&amp;display=inline&amp;height=697&amp;name=image.png&amp;originHeight=871&amp;originWidth=851&amp;size=942735&amp;status=done&amp;width=680.8" alt="image.png" /></p>
 <p>本题便是涉及了图论、插值及动态规划。其中一个方法是用MATLAB导入数据完成插值，便可以得到三维模型图和等高线图。只有进行插值得到了这两个图形，才方便解题，这里也体现了插值，数据拟合的重要。</p>
 <p><a name="lv4Bb"></a></p>
 <h2>03 <strong>线性规划、整数规划、多元规划、二次规划等规划类问题</strong></h2>
@@ -41,13 +41,13 @@
 <br />简单介绍关于Dijkstra、Floyd、Prim<br /></p>
 <p><a name="asJzM"></a></p>
 <h2>05 <strong>动态规划、回溯搜索、分治算法、分支定界等计算机算法</strong></h2>
-<p>在数学建模竞赛中，如：92 年 B 题用分枝定界法，97年 B 题是典型的动态规划问题，此外 98 年 B 题体现了分治算法。<br /><img src="https://cdn.nlark.com/yuque/0/2019/webp/277167/1566136168773-581df6f8-91f5-4ce2-a2ca-5087b42f442c.webp#align=left&amp;display=inline&amp;height=222&amp;originHeight=222&amp;originWidth=640&amp;size=0&amp;status=done&amp;width=640" alt="" /><br />这方面问题和 ACM 程序设计竞赛中的问题类似，推荐看一下算法导论，与《计算机算法设计与分析》（电子工业出版社）等与计算机算法有关的书。<br /></p>
+<p>在数学建模竞赛中，如：92 年 B 题用分枝定界法，97年 B 题是典型的动态规划问题，此外 98 年 B 题体现了分治算法。<br /><img src="1566136168773-581df6f8-91f5-4ce2-a2ca-5087b42f442c.webp#align=left&amp;display=inline&amp;height=222&amp;originHeight=222&amp;originWidth=640&amp;size=0&amp;status=done&amp;width=640" alt="" /><br />这方面问题和 ACM 程序设计竞赛中的问题类似，推荐看一下算法导论，与《计算机算法设计与分析》（电子工业出版社）等与计算机算法有关的书。<br /></p>
 <p><a name="xvtJx"></a></p>
 <h2>06 <strong>最优化理论的三大经典算法：模拟退火法（SA）、神经网络（NN）、遗传算法（GA）</strong></h2>
-<p>这十几年来最优化理论有了飞速发展，模拟退火法、神经网络、遗传算法这三类算法发展很快。<br />在数学建模竞赛中：比如 97 年 A 题的模拟退火算法，00 年 B 题的神经网络分类算法，01 年 B 题这种难题也可以使用神经网络。<br />还有美国竞赛 89 年 A 题也和 BP 算法有关系，当时是 86 年刚提出 BP 算法，89 年就考了，说明赛题可能是当今前沿科技的抽象体现。<br />03 年 B 题伽马刀问题也是目前研究的课题，目前算法最佳的是遗传算法。<br /><img src="https://cdn.nlark.com/yuque/0/2019/webp/277167/1566136168743-985cc58f-9f8c-4459-b0fd-ea7ad5731658.webp#align=left&amp;display=inline&amp;height=200&amp;originHeight=400&amp;originWidth=513&amp;size=0&amp;status=done&amp;width=257" alt="" /><br /></p>
+<p>这十几年来最优化理论有了飞速发展，模拟退火法、神经网络、遗传算法这三类算法发展很快。<br />在数学建模竞赛中：比如 97 年 A 题的模拟退火算法，00 年 B 题的神经网络分类算法，01 年 B 题这种难题也可以使用神经网络。<br />还有美国竞赛 89 年 A 题也和 BP 算法有关系，当时是 86 年刚提出 BP 算法，89 年就考了，说明赛题可能是当今前沿科技的抽象体现。<br />03 年 B 题伽马刀问题也是目前研究的课题，目前算法最佳的是遗传算法。<br /><img src="1566136168743-985cc58f-9f8c-4459-b0fd-ea7ad5731658.webp#align=left&amp;display=inline&amp;height=200&amp;originHeight=400&amp;originWidth=513&amp;size=0&amp;status=done&amp;width=257" alt="" /><br /></p>
 <p><a name="e33dF"></a></p>
 <h2>07 <strong>网格算法和穷举法</strong></h2>
-<p>网格算法和穷举法一样，只是网格法是连续问题的穷举。<br />比如要求在 N 个变量情况下的最优化问题，那么对这些变量可取的空间进行采点，比如在 [a;b] 区间内取 M+1 个点，那么这样循环就需要进行 (M+1)N 次运算，所以计算量很大。<br />在数学建模竞赛中：比如 97 年 A 题、99 年 B 题都可以用网格法搜索，这种方法最好在运算速度较快的计算机中进行，还有要用高级语言来做，最好不要用MATLAB 做网格，否则会算很久。<br /><img src="https://cdn.nlark.com/yuque/0/2019/gif/277167/1566136168757-31cfc15a-bf47-4dc7-b0bb-f92a831c6960.gif#align=left&amp;display=inline&amp;height=167&amp;originHeight=334&amp;originWidth=467&amp;size=0&amp;status=done&amp;width=234" alt="" /><br />穷举法大家都熟悉，自不用多说了。<br /></p>
+<p>网格算法和穷举法一样，只是网格法是连续问题的穷举。<br />比如要求在 N 个变量情况下的最优化问题，那么对这些变量可取的空间进行采点，比如在 [a;b] 区间内取 M+1 个点，那么这样循环就需要进行 (M+1)N 次运算，所以计算量很大。<br />在数学建模竞赛中：比如 97 年 A 题、99 年 B 题都可以用网格法搜索，这种方法最好在运算速度较快的计算机中进行，还有要用高级语言来做，最好不要用MATLAB 做网格，否则会算很久。<br /><img src="1566136168757-31cfc15a-bf47-4dc7-b0bb-f92a831c6960.gif#align=left&amp;display=inline&amp;height=167&amp;originHeight=334&amp;originWidth=467&amp;size=0&amp;status=done&amp;width=234" alt="" /><br />穷举法大家都熟悉，自不用多说了。<br /></p>
 <p><a name="wIrhE"></a></p>
 <h2>08 <strong>一些连续离散化方法</strong></h2>
 <p>大部分物理问题的编程解决，都和这种方法有一定的联系。物理问题是反映我们生活在一个连续的世界中，计算机只能处理离散的量，所以需要对连续量进行离散处理。<br />这种方法应用很广，而且和上面的很多算法有关。事实上，网格算法、蒙特卡罗算法、模拟退火都用了这个思想。<br /></p>
