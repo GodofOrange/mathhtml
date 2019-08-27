@@ -34,6 +34,9 @@
 <script>
 export default {
   name: 'modeling_info',
+  mounted () {
+    this.$router.replace('/extract/modeling_info/modeling_1')
+  },
   methods: {
     handleSelect (key, keyPath) {
       if (key === '1') {

@@ -37,6 +37,24 @@ const modeling1 = () => import('@/components/extract/math_model/modeling_dev/mod
 const modeling2 = () => import('@/components/extract/math_model/modeling_dev/modeling_2.vue')
 const modeling3 = () => import('@/components/extract/math_model/modeling_dev/modeling_3.vue')
 const modeling4 = () => import('@/components/extract/math_model/modeling_dev/modeling_4.vue')
+const modelvideo1 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_1.vue')
+const modelvideo2 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_2.vue')
+const modelvideo3 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_3.vue')
+const modelvideo4 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_4.vue')
+const modelvideo5 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_5.vue')
+const modelvideo6 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_6.vue')
+const modelvideo7 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_7.vue')
+const modelvideo8 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_8.vue')
+const modelvideo9 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_9.vue')
+const modelvideo10 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_10.vue')
+const modelvideo11 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_11.vue')
+const modelvideo12 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_12.vue')
+const modelvideo13 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_13.vue')
+const modelvideo14 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_14.vue')
+const modelvideo15 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_15.vue')
+const modelvideo16 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_16.vue')
+const modelvideo17 = () => import('@/components/extract/math_model/modeling_advance_dev/video/model_video_17.vue')
+
 Vue.use(Router)
 
 export default new Router({
@@ -137,7 +155,24 @@ export default new Router({
     {
       path: '/extract/modeling_advance',
       name: 'modeling_advance',
-      component: modelingAdvance
+      component: modelingAdvance,
+      children: [{path: 'modeling_video_1', component: modelvideo1},
+        {path: 'modeling_video_2', component: modelvideo2},
+        {path: 'modeling_video_3', component: modelvideo3},
+        {path: 'modeling_video_4', component: modelvideo4},
+        {path: 'modeling_video_5', component: modelvideo5},
+        {path: 'modeling_video_6', component: modelvideo6},
+        {path: 'modeling_video_7', component: modelvideo7},
+        {path: 'modeling_video_8', component: modelvideo8},
+        {path: 'modeling_video_9', component: modelvideo9},
+        {path: 'modeling_video_10', component: modelvideo10},
+        {path: 'modeling_video_11', component: modelvideo11},
+        {path: 'modeling_video_12', component: modelvideo12},
+        {path: 'modeling_video_13', component: modelvideo13},
+        {path: 'modeling_video_14', component: modelvideo14},
+        {path: 'modeling_video_15', component: modelvideo15},
+        {path: 'modeling_video_16', component: modelvideo16},
+        {path: 'modeling_video_17', component: modelvideo17}]
     },
     {
       path: '/extract/modeling_high',
