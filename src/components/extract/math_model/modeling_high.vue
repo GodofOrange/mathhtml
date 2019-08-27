@@ -35,25 +35,25 @@
 export default {
   name: 'modeling_high',
   mounted () {
-    this.$router.replace('/extract/modeling_high/')
+    this.$router.replace('/extract/modeling_high/modelhigh1')
   },
   methods: {
     handleSelect (key, keyPath) {
       if (key === '1') {
         this.$router.push({
-          path: '/extract/modeling_high/'
+          path: '/extract/modeling_high/modelhigh1'
         })
       } else if (key === '2') {
         this.$router.push({
-          path: '/extract/modeling_high/'
+          path: '/extract/modeling_high/modelhigh2'
         })
       } else if (key === '3') {
         this.$router.push({
-          path: '/extract/modeling_high/'
+          path: '/extract/modeling_high/modelhigh3'
         })
       } else if (key === '4') {
         this.$router.push({
-          path: '/extract/modeling_high/'
+          path: '/extract/modeling_high/modelhigh4'
         })
       }
     }

@@ -57,7 +57,10 @@ const modelvideo17 = () => import('@/components/extract/math_model/modeling_adva
 const modelling5 = () => import('@/components/extract/math_model/modeling_advance_dev/model_5.vue')
 const modelling6 = () => import('@/components/extract/math_model/modeling_advance_dev/model_6.vue')
 const modelling7 = () => import('@/components/extract/math_model/modeling_advance_dev/model_7.vue')
-
+const modelhigh1 = () => import('@/components/extract/math_model/modeling_high_dev/model_1.vue')
+const modelhigh2 = () => import('@/components/extract/math_model/modeling_high_dev/model_2.vue')
+const modelhigh3 = () => import('@/components/extract/math_model/modeling_high_dev/model_3.vue')
+const modelhigh4 = () => import('@/components/extract/math_model/modeling_high_dev/model_4.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -183,7 +186,11 @@ export default new Router({
     {
       path: '/extract/modeling_high',
       name: 'modeling_high',
-      component: modelingHigh
+      component: modelingHigh,
+      children: [{path: 'modelhigh1', component: modelhigh1},
+        {path: 'modelhigh2', component: modelhigh2},
+        {path: 'modelhigh3', component: modelhigh3},
+        {path: 'modelhigh4', component: modelhigh4}]
     },
     {
       path: '/login',
