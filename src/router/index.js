@@ -61,6 +61,9 @@ const modelhigh1 = () => import('@/components/extract/math_model/modeling_high_d
 const modelhigh2 = () => import('@/components/extract/math_model/modeling_high_dev/model_2.vue')
 const modelhigh3 = () => import('@/components/extract/math_model/modeling_high_dev/model_3.vue')
 const modelhigh4 = () => import('@/components/extract/math_model/modeling_high_dev/model_4.vue')
+const Enter = () => import('@/components/extract/math_model/modeling_high_dev/Enter.vue')
+const Thesis = () => import('@/components/extract/math_model/modeling_high_dev/Thesis.vue')
+const teamEnter = () => import('@/components/extract/math_model/modeling_high_dev/teamEnter.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -190,7 +193,10 @@ export default new Router({
       children: [{path: 'modelhigh1', component: modelhigh1},
         {path: 'modelhigh2', component: modelhigh2},
         {path: 'modelhigh3', component: modelhigh3},
-        {path: 'modelhigh4', component: modelhigh4}]
+        {path: 'modelhigh4', component: modelhigh4},
+        {path: 'Thesis', component: Thesis},
+        {path: 'Enter', component: Enter},
+        {path: 'teamEnter', component: teamEnter}]
     },
     {
       path: '/login',
