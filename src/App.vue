@@ -34,11 +34,16 @@
     </el-submenu>
     <el-menu-item index="7"><i class="el-icon-document"></i>阅读</el-menu-item>
     <el-menu-item index="8"><i class="el-icon-notebook-2"></i>作业</el-menu-item>
-    <el-menu-item index="12" style="float: right">我的信息(登录页面)</el-menu-item>
     <el-menu-item index="13" style="float: right">头像</el-menu-item>
+  <el-menu-item index="12" style="float: right" v-if="!showPrise">登录</el-menu-item>
+    <el-submenu index="14" style="float: right" v-if="showPrise">
+      <template slot="title"><i class="el-icon-s-promotion"></i>{{myuser}}</template>
+      <el-menu-item index="14-1">我的信息</el-menu-item>
+      <el-menu-item index="14-2">登出</el-menu-item>
+    </el-submenu>
     </el-menu>
     </div>
-    <transition name="el-fade-in"><router-view/></transition>
+    <transition name="el-fade-in"><router-view @changeMyName="changeMyName"/></transition>
   </div>
 </template>
 <script>
@@ -46,10 +51,32 @@ export default {
   name: 'app',
   data () {
     return {
-      activeIndex: '1'
+      activeIndex: '1',
+      myuser: 'xxx',
+      showPrise: false
     }
   },
+  mounted () {
+    this.$axios({method: 'GET', url: this.$baseUrl + '/GetMyNameController/getMyName'}).then((response) => {
+      this.myuser = response.data
+      if (this.myuser !== 'xxx') {
+        this.showPrise = true
+      }
+    }).catch((error) => {
+      console.log(error) // 请求失败返回的数据
+    })
+  },
   methods: {
+    changeMyName () {
+      this.$axios({method: 'GET', url: this.$baseUrl + '/GetMyNameController/getMyName'}).then((response) => {
+        this.myuser = response.data
+        if (this.myuser !== 'xxx') {
+          this.showPrise = true
+        }
+      }).catch((error) => {
+        console.log(error) // 请求失败返回的数据
+      })
+    },
     handleSelect (key, keyPath) {
       if (key === '2-2') {
         this.$router.push({
@@ -118,6 +145,13 @@ export default {
       } else if (key === '0') {
         this.$router.push({
           path: '/announcement'
+        })
+      } else if (key === '14-2') {
+        this.$axios({method: 'GET', url: this.$baseUrl + '/logout'}).then((response) => {
+          this.myuser = 'xxx'
+          this.showPrise = false
+        }).catch((error) => {
+          console.log(error) // 请求失败返回的数据
         })
       }
     }

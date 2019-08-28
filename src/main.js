@@ -12,6 +12,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 require('echarts/lib/chart/bar')
 require('echarts/lib/chart/line')
+axios.defaults.withCredentials = true
 Vue.prototype.$axios = axios // 全局注册，使用方法为:this.$axios
 Vue.prototype.qs = qs
 Vue.prototype.$baseUrl = 'http://127.0.0.1:8081'
