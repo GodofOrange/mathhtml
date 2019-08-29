@@ -64,6 +64,8 @@ const modelhigh4 = () => import('@/components/extract/math_model/modeling_high_d
 const Enter = () => import('@/components/extract/math_model/modeling_high_dev/Enter.vue')
 const Thesis = () => import('@/components/extract/math_model/modeling_high_dev/Thesis.vue')
 const teamEnter = () => import('@/components/extract/math_model/modeling_high_dev/teamEnter.vue')
+const MyInfomation = () => import('@/components/allviews/MyInfomation.vue')
+const game = () => import('@/components/extract/game/game.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -204,9 +206,19 @@ export default new Router({
       component: Login
     },
     {
+      path: '/MyInfomation',
+      name: 'MyInfomation',
+      component: MyInfomation
+    },
+    {
       path: '/announcement',
       name: 'announcement',
       component: Announcement
+    },
+    {
+      path: '/game',
+      name: 'game',
+      component: game
     }
   ]
 })

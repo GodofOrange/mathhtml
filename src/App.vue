@@ -6,7 +6,7 @@
          mode="horizontal"
          @select="handleSelect"
          >
-    <el-menu-item index="0">精互同·游戏式教育平台</el-menu-item>
+    <el-menu-item index="0"><img style="height: 30px;width: 30px" src='@/assets/explore/main-user.png'>精互同·电子竞技教育平台</el-menu-item>
     <el-menu-item index="1"><i class="el-icon-edit"></i>探索</el-menu-item>
     <el-submenu index="2">
       <template slot="title"><i class="el-icon-s-opportunity"></i>精</template>
@@ -24,17 +24,16 @@
     <el-submenu index="3">
       <template slot="title"><i class="el-icon-s-data"></i>互</template>
       <el-menu-item index="3-1"><i class="el-icon-data-analysis"></i>大数世界</el-menu-item>
-      <el-menu-item index="3-2"><i class="el-icon-notebook-2"></i>师生答疑</el-menu-item>
+      <el-menu-item index="3-2"><i class="el-icon-notebook-2"></i>互动答疑</el-menu-item>
       <el-menu-item index="3-3"><i class="el-icon-s-data"></i>积分排行</el-menu-item>
+      <el-menu-item index="7"><i class="el-icon-document"></i>精品文章阅读</el-menu-item>
     </el-submenu>
     <el-submenu index="4">
       <template slot="title"><i class="el-icon-s-promotion"></i>同</template>
       <el-menu-item index="4-1">我的大数</el-menu-item>
       <el-menu-item index="4-2">大同社团</el-menu-item>
     </el-submenu>
-    <el-menu-item index="7"><i class="el-icon-document"></i>阅读</el-menu-item>
-    <el-menu-item index="8"><i class="el-icon-notebook-2"></i>作业</el-menu-item>
-    <el-menu-item index="13" style="float: right">头像</el-menu-item>
+  <el-menu-item index="13" style="float: right" v-if="showPrise"><el-badge is-dot class="item"><img v-bind:src="imgUrl" style="width: 50px;height: 50px"></el-badge></el-menu-item>
   <el-menu-item index="12" style="float: right" v-if="!showPrise">登录</el-menu-item>
     <el-submenu index="14" style="float: right" v-if="showPrise">
       <template slot="title"><i class="el-icon-s-promotion"></i>{{myuser}}</template>
@@ -53,7 +52,8 @@ export default {
     return {
       activeIndex: '1',
       myuser: 'xxx',
-      showPrise: false
+      showPrise: false,
+      imgUrl: ''
     }
   },
   mounted () {
@@ -65,6 +65,9 @@ export default {
     }).catch((error) => {
       console.log(error) // 请求失败返回的数据
     })
+    this.$axios({method: 'GET', url: this.$baseUrl + '/UserInformation/getMyInformation'}).then((response) => {
+      this.imgUrl = response.data.img
+    })
   },
   methods: {
     changeMyName () {
@@ -73,6 +76,9 @@ export default {
         if (this.myuser !== 'xxx') {
           this.showPrise = true
         }
+        this.$axios({method: 'GET', url: this.$baseUrl + '/UserInformation/getMyInformation'}).then((response) => {
+          this.imgUrl = response.data.img
+        })
       }).catch((error) => {
         console.log(error) // 请求失败返回的数据
       })
@@ -94,7 +100,7 @@ export default {
         this.$router.push({
           path: '/read'
         })
-      } else if (key === '8') {
+      } else if (key === '13') {
         this.$router.push({
           path: '/homework'
         })
@@ -152,6 +158,10 @@ export default {
           this.showPrise = false
         }).catch((error) => {
           console.log(error) // 请求失败返回的数据
+        })
+      } else if (key === '14-1') {
+        this.$router.push({
+          path: '/MyInfomation'
         })
       }
     }

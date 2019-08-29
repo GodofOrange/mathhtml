@@ -4,8 +4,7 @@
       <h1>欢迎来到精互同游戏式竞赛中心</h1>
       </div>
       <el-divider></el-divider>
-
-      <el-card shadow="hover" style="background-color: darkgray" class="box-card">
+      <el-card shadow="hover" style="background-color: darkgray" class="box-card" @click.native="turnToGame">
         进入游戏竞赛
       </el-card>
       <el-card shadow="hover" style="background-color: darkgray" class="box-card">
@@ -22,7 +21,12 @@
 
 <script>
 export default {
-  name: 'contest'
+  name: 'contest',
+  methods: {
+    turnToGame () {
+      this.$router.push('/game')
+    }
+  }
 }
 </script>
 

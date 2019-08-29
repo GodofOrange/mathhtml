@@ -31,8 +31,8 @@
       </el-row>
     </div>
     <el-divider></el-divider>
-    <div class="problem-body">
-      {{problem_body}}
+    <h2>题目如下所示：</h2>
+    <div class="problem-body" v-html="problem_body">
     </div>
     <el-divider/>
     <div class="answer-body">
