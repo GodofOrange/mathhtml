@@ -45,10 +45,10 @@
     <el-divider/>
     <div class="comment-body">
       <el-row>
-      <el-col :span="12"><h3>解题思路(证明题回答主体)</h3></el-col>
+      <el-col :span="12"><h3>解题思路(证明题回答主体)支持mathType及复制粘贴图片</h3></el-col>
       <el-col :span="12"><el-button type="primary" style="margin-top: 10px;float: right">提交答案</el-button></el-col>
       </el-row>
-      <iframe src="static/myeditor/1.html" name="editor" style="width: 100%" scrolling="no" height="500px" frameborder="0"></iframe>
+      <tinymce-editor v-model="answer"></tinymce-editor>
     </div>
     <el-divider/>
     <div>
@@ -60,8 +60,12 @@
 </template>
 
 <script>
+const TinymceEditor = () => import('../../util/tinymce-editor')
 export default {
   name: 'problem',
+  components: {
+    TinymceEditor
+  },
   data () {
     return {
       title: '呵呵',
@@ -69,6 +73,7 @@ export default {
       colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
       problem_body: '问题主体',
       kind: '',
+      answer: '',
       showYes: true
     }
   },
