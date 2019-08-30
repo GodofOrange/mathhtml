@@ -33,7 +33,7 @@ export default {
         if (response.data === true) {
           this.$message.success('提交成功')
         } else {
-          this.$message.error('提交失败')
+          this.$message.error(' 提交失败')
         }
       })
     }
