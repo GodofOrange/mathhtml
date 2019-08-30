@@ -35,7 +35,7 @@
     <div class="problem-body" v-html="problem_body">
     </div>
     <el-divider/>
-    <div class="answer-body">
+    <div class="answer-body"  v-if="showYes">
       <h3>选填回答主体</h3>
       <el-row :gutter="20">
         <el-col :span="4"><el-input placeholder="请输入内容"></el-input></el-col>
@@ -45,7 +45,7 @@
     <el-divider/>
     <div class="comment-body">
       <el-row>
-      <el-col :span="12"><h3>证明题回答主体</h3></el-col>
+      <el-col :span="12"><h3>解题思路(证明题回答主体)</h3></el-col>
       <el-col :span="12"><el-button type="primary" style="margin-top: 10px;float: right">提交答案</el-button></el-col>
       </el-row>
       <iframe src="static/myeditor/1.html" name="editor" style="width: 100%" scrolling="no" height="500px" frameborder="0"></iframe>
@@ -67,13 +67,21 @@ export default {
       title: '呵呵',
       value: 3.7,
       colors: ['#99A9BF', '#F7BA2A', '#FF9900'],
-      problem_body: '问题主体'
+      problem_body: '问题主体',
+      kind: '',
+      showYes: true
     }
   },
   mounted () {
     this.title = this.$route.query.id + '.' + this.$route.query.title
     this.$axios({method: 'GET', url: this.$baseUrl + '/Problembody/getProblembody?id=' + this.$route.query.id}).then((response) => {
       this.problem_body = response.data.body // 请求成功返回的数据
+      this.kind = response.data.kind
+      if (this.kind === '1') {
+        this.showYes = true
+      } else {
+        this.showYes = false
+      }
     }).catch((error) => {
       console.log(error) // 请求失败返回的数据
     })
