@@ -29,25 +29,26 @@ export default {
       }
     }
   },
+  created: function () {
+  },
   methods: {
     loadNode (node, resolve) {
       if (node.level === 0) {
-        return resolve([
-          { name: '高等数学' },
-          { name: '线性代数' },
-          { name: '数学建模' },
-          { name: '概率论' }])
+        let book = []
+        this.$axios({
+          method: 'GET',
+          url: this.$baseUrl + '/Book/getAllBook'
+        }).then((response) => {
+          for (let i = 0; i < response.data.length; i++) {
+            book.push({name: response.data[i].title})
+          }
+          return resolve(book)
+        })
       }
-      if (node.level > 1) return resolve([{ name: '各种题目', leaf: true }])
+      if (node.level === 1) {
 
-      setTimeout(() => {
-        const data = [{
-          name: '章节1'
-        }, {
-          name: '章节2'
-        }]
-        resolve(data)
-      }, 500)
+      }
+      if (node.level > 2) return resolve([{ name: '各种题目', leaf: true }])
     }
   }
 }

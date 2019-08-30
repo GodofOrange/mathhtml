@@ -7,7 +7,7 @@
       <el-col :span="15">
     <div class="icard">
       <el-card shadow="hover" style="background-color: snow" class="box-card">
-        <span style="font-weight: bold">{{title}}</span>
+        <span style="font-weight: bold">数学发展的历史</span>
         <p>数学的发展是以数和形两个基本概念为主干的,整个数学就是围绕数与形两个概念的提炼、演变和发展而发展的.数学发展史中—直存在着数与形两条并行不悖的发展路线,一条以发展计算为中心的算术代数路线,一条以发展形为主的几何路线,前者有两个源头,一个源头是独立发展的中国数学,另一源头是古巴比伦数…</p>
         <div style="float: right">
           <el-button type="primary" icon="el-icon-chat-line-round" size="mini" circle></el-button>
@@ -42,12 +42,7 @@
 
 <script>
 export default {
-  name: 'read',
-  data () {
-    return {
-      title: 'MY'
-    }
-  }
+  name: 'read'
 }
 </script>
 
