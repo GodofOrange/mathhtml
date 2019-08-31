@@ -92,7 +92,7 @@
           <el-table-column prop="title" label="题目标题"></el-table-column>
           <el-table-column prop="percentage" label="通过率"></el-table-column>
           <el-table-column prop="level" label="难度"></el-table-column>
-          <el-table-column label="题目链接" ><template slot-scope="scope"><el-button size="mini" @click="turnToProblem(scope.row.title, scope.row.id)">进入</el-button></template></el-table-column>
+          <el-table-column label="题目链接" ><template slot-scope="scope"><el-button size="mini" @click="turnToProblem(scope.row.title, scope.row.id, scope.row.level)">进入</el-button></template></el-table-column>
         </el-table>
       </div>
     <div class="block" style="margin-right: 30%;margin-left: 30%">
@@ -129,12 +129,13 @@ export default {
     })
   },
   methods: {
-    turnToProblem (pstitle, pid) {
+    turnToProblem (pstitle, pid, level) {
       this.$router.push({
         path: '/problem',
         query: {
           id: pid,
-          title: pstitle
+          title: pstitle,
+          level: level
         }
       })
     },

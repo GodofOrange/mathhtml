@@ -8,7 +8,7 @@
         <el-table-column prop="title" label="题目标题"></el-table-column>
         <el-table-column prop="percentage" label="通过率"></el-table-column>
         <el-table-column prop="level" label="难度"></el-table-column>
-        <el-table-column label="题目链接"><el-button size="mini" @click="turnToProblem">进入</el-button></el-table-column>
+        <el-table-column label="题目链接"><template slot-scope="scope"><el-button size="mini" @click="turnToProblem(scope.row.title, scope.row.id, scope.row.level)">进入</el-button></template></el-table-column>
       </el-table>
     </div>
   </div>
@@ -32,9 +32,14 @@ export default {
     this.title = this.$route.query.title
   },
   methods: {
-    turnToProblem () {
+    turnToProblem (pstitle, pid, level) {
       this.$router.push({
-        path: '/problem'
+        path: '/problem',
+        query: {
+          id: pid,
+          title: pstitle,
+          level: level
+        }
       })
     }
   }

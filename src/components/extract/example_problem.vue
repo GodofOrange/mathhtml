@@ -1,13 +1,13 @@
 <template>
     <div>
       <el-row>
-        <el-col :span="4"><el-tree :props="props" :load="loadNode" lazy></el-tree></el-col>
+        <el-col :span="4"><el-tree :props="props" @node-click="handleNodeClick" :load="loadNode" lazy></el-tree></el-col>
         <el-col :span="20">
-          <h1>题目标题</h1>
+          <h1>{{title}}</h1>
           <el-divider></el-divider>
-          <p>题目主体</p>
+          <div v-html="body"></div>
           <el-divider></el-divider>
-          <p>题目解析</p>
+          <div v-html="answer"></div>
           <el-divider></el-divider>
           <p>题目讨论</p>
           <el-divider></el-divider>
@@ -22,10 +22,14 @@ export default {
   name: 'example_problem',
   data () {
     return {
+      title: '题目标题',
+      body: '题目主体',
+      answer: '题目解析',
       props: {
         label: 'name',
         children: 'zones',
-        isLeaf: 'leaf'
+        isLeaf: 'leaf',
+        key: 'key'
       }
     }
   },
@@ -40,15 +44,58 @@ export default {
           url: this.$baseUrl + '/Book/getAllBook'
         }).then((response) => {
           for (let i = 0; i < response.data.length; i++) {
-            book.push({name: response.data[i].title})
+            book.push({name: response.data[i].title, key: response.data[i].id})
           }
           return resolve(book)
         })
       }
       if (node.level === 1) {
-
+        console.log(node.data.key)
+        this.$axios({
+          method: 'GET',
+          url: this.$baseUrl + '/Chapter/findAllByBookid',
+          params: {
+            id: node.data.key
+          }
+        }).then((response) => {
+          let chapter = []
+          for (let i = 0; i < response.data.length; i++) {
+            chapter.push({name: response.data[i].title, key: response.data[i].id})
+          }
+          return resolve(chapter)
+        })
       }
-      if (node.level > 2) return resolve([{ name: '各种题目', leaf: true }])
+      if (node.level === 2) {
+        this.$axios({
+          method: 'GET',
+          url: this.$baseUrl + '/Example/findAllByChapterid',
+          params: {
+            id: node.data.key
+          }
+        }).then((response) => {
+          let example = []
+          for (let i = 0; i < response.data.length; i++) {
+            example.push({name: response.data[i].title, key: response.data[i].id, leaf: true})
+          }
+          return resolve(example)
+        })
+      }
+    },
+    handleNodeClick (data, node) {
+      if (node.level === 3) {
+        this.$axios({
+          method: 'GET',
+          url: this.$baseUrl + '/ExampleBody/getExamPleBodyById',
+          params: {
+            exampleid: data.key
+          }
+        }).then((response) => {
+          this.body = response.data.body
+          this.answer = response.data.answer
+        })
+        console.log(data.name)
+        this.title = data.name
+      }
     }
   }
 }
