@@ -31,13 +31,15 @@
     <el-submenu index="4">
       <template slot="title"><i class="el-icon-s-promotion"></i>同</template>
       <el-menu-item index="4-1">我的大数</el-menu-item>
-      <el-menu-item index="4-2">大同社团</el-menu-item>
+      <el-menu-item index="4-2">大同社区</el-menu-item>
     </el-submenu>
   <el-menu-item index="13" style="float: right" v-if="showPrise"><el-badge is-dot class="item"><img v-bind:src="imgUrl" style="width: 50px;height: 50px"></el-badge></el-menu-item>
   <el-menu-item index="12" style="float: right" v-if="!showPrise">登录</el-menu-item>
     <el-submenu index="14" style="float: right" v-if="showPrise">
       <template slot="title"><i class="el-icon-s-promotion"></i>{{myuser}}</template>
       <el-menu-item index="14-1">我的信息</el-menu-item>
+      <el-menu-item index="14-3">我的入驻</el-menu-item>
+      <el-menu-item index="14-4">教师端</el-menu-item>
       <el-menu-item index="14-2">登出</el-menu-item>
     </el-submenu>
     </el-menu>
@@ -162,6 +164,14 @@ export default {
       } else if (key === '14-1') {
         this.$router.push({
           path: '/MyInfomation'
+        })
+      } else if (key === '14-3') {
+        this.$router.push({
+          path: '/MyOccupation'
+        })
+      } else if (key === '14-4') {
+        this.$router.push({
+          path: '/TeacherClient'
         })
       }
     }

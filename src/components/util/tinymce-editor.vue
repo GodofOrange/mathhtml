@@ -50,16 +50,17 @@ export default {
         language_url: '/static/tinymce/langs/zh_CN.js',
         language: 'zh_CN',
         skin_url: '/static/tinymce/skins/lightgray',
-        external_plugins: {
-          tiny_mce_wiris: 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js',
-          powerpaste: '/static/tinymce/powerpaste/plugin.min.js'
-        },
+
         height: 300,
         plugins: this.plugins,
         toolbar: this.toolbar,
         branding: false,
         menubar: false,
         paste_data_images: true,
+        external_plugins: {
+          tiny_mce_wiris: 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js',
+          powerpaste: '/static/tinymce/powerpaste/plugin.min.js'
+        },
         images_upload_handler: (blobInfo, success, failure) => {
           const img = 'data:image/jpeg;base64,' + blobInfo.base64()
           success(img)

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import explore from '@/components/allviews/explore'
+const MyOccupation = () => import('@/components/allviews/MyOccupation')
 const contest = () => import('@/components/extract/contest.vue')
 const read = () => import('@/components/read/read.vue')
 const homework = () => import('@/components/homework/homework.vue')
@@ -66,6 +67,7 @@ const Thesis = () => import('@/components/extract/math_model/modeling_high_dev/T
 const teamEnter = () => import('@/components/extract/math_model/modeling_high_dev/teamEnter.vue')
 const MyInfomation = () => import('@/components/allviews/MyInfomation.vue')
 const game = () => import('@/components/extract/game/game.vue')
+const TeacherClient = () => import('@/components/allviews/Teacher/TeacherClient.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -219,6 +221,16 @@ export default new Router({
       path: '/game',
       name: 'game',
       component: game
+    },
+    {
+      path: '/MyOccupation',
+      name: 'MyOccupation',
+      component: MyOccupation
+    },
+    {
+      path: '/TeacherClient',
+      name: 'TeacherClient',
+      component: TeacherClient
     }
   ]
 })
