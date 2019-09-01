@@ -2,6 +2,8 @@
   <div>
     <input type="text" v-model="text">
     <button @click="sendMessage">发送消息</button>
+    <div class="bubble">
+    </div>
     <div>
       <div v-for="(data,key) in datas" :key="key">
         {{data.content}}
@@ -50,5 +52,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

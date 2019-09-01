@@ -42,12 +42,28 @@
       <el-menu-item index="14-4">教师端</el-menu-item>
       <el-menu-item index="14-2">登出</el-menu-item>
     </el-submenu>
-    </el-menu>
+  <el-menu-item index="16" style="float: right" v-if="showPrise">聊天大厅</el-menu-item>
+</el-menu>
     </div>
     <transition name="el-fade-in"><router-view @changeMyName="changeMyName"/></transition>
+    <el-drawer title="聊天大厅" :visible.sync="drawer" direction="rtl">
+      <el-input type="text" v-model="text" @keyup.enter.native="sendMessage"></el-input>
+      <el-button @click="sendMessage" style="text-align: center">发送消息</el-button>
+      <transition name="el-fade-in">
+      <div>
+        <div v-for="(data,key) in datas" :key="key">
+          <p style="color: #1e6abc;font-size: small;font-weight: bold" >{{data.name}}</p>
+          <time style="float: right;font-size: small;color: darkgrey" class="time">{{data.data}}</time>
+          <p style="font-size: medium;">:{{data.content}}</p>
+        </div>
+      </div>
+      </transition>
+    </el-drawer>
   </div>
 </template>
 <script>
+import SockJS from 'sockjs-client'
+import Stomp from 'webstomp-client'
 export default {
   name: 'app',
   data () {
@@ -55,7 +71,11 @@ export default {
       activeIndex: '1',
       myuser: 'xxx',
       showPrise: false,
-      imgUrl: ''
+      imgUrl: '',
+      drawer: false,
+      text: '',
+      datas: [],
+      stompClient: null
     }
   },
   mounted () {
@@ -72,6 +92,22 @@ export default {
     })
   },
   methods: {
+    sendMessage () {
+      this.stompClient.send('/app/hello', JSON.stringify(this.text), {})
+    },
+    initWebSocket () {
+      this.connection()
+    },
+    connection () {
+      const socket = new SockJS(this.$baseUrl + '/chat')
+      this.stompClient = Stomp.over(socket)
+      this.stompClient.connect({}, (frame) => {
+        this.stompClient.subscribe('/topic/greetings', (greeting) => {
+          console.log(JSON.parse(greeting.body))
+          this.datas.unshift(JSON.parse(greeting.body))
+        })
+      })
+    },
     changeMyName () {
       this.$axios({method: 'GET', url: this.$baseUrl + '/GetMyNameController/getMyName'}).then((response) => {
         this.myuser = response.data
@@ -81,6 +117,11 @@ export default {
         this.$axios({method: 'GET', url: this.$baseUrl + '/UserInformation/getMyInformation'}).then((response) => {
           this.imgUrl = response.data.img
         })
+        if ('WebSocket' in window) {
+          this.initWebSocket()
+        } else {
+          alert('当前浏览器 Not support websocket')
+        }
       }).catch((error) => {
         console.log(error) // 请求失败返回的数据
       })
@@ -173,6 +214,8 @@ export default {
         this.$router.push({
           path: '/TeacherClient'
         })
+      } else if (key === '16') {
+        this.drawer = true
       }
     }
   }

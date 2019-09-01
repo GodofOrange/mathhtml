@@ -12,7 +12,7 @@
             <i class="el-icon-menu"></i>
             <span slot="title">个性交友</span>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="3" disabled>
             <i class="el-icon-menu"></i>
             <span slot="title">超话群聊</span>
           </el-menu-item>
