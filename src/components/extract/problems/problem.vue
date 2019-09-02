@@ -2,7 +2,7 @@
   <div id="problem">
     <div class="problem-title">
       <el-row>
-        <el-col :span="3"><span style="font-weight: bold;font-size: large">{{title}}</span>
+        <el-col :span="3"><span style="font-weight: bold;font-size: large">{{title}}</span><p style="font-size: small;color: darkgrey">题目上传人:{{uploadUsername}}</p>
         </el-col>
         <el-col :span="3"><el-rate
           v-model="level"
@@ -11,11 +11,13 @@
           text-color="#ff9900">
         </el-rate></el-col>
         <el-col :span="6">
-          <el-tag type="danger">考研</el-tag>
-          <el-tag type="danger">200人已通过</el-tag>
-          <el-tag type="danger">新生题目</el-tag>
-          <el-tag type="danger">微积分</el-tag>
-          <el-tag type="danger">10人提交题解</el-tag>
+          <el-tag
+            :key="tag"
+            v-model="labels"
+            v-for="tag in labels"
+            :disable-transitions="false" style="margin-left: 10px">
+            {{tag.name}}
+          </el-tag>
         </el-col>
         <el-col :span="6">
           <el-button-group>
@@ -136,11 +138,13 @@ export default {
       kind: '',
       answer: '',
       showYes: true,
+      uploadUsername: '',
       dialogVisible: false,
       standard: '',
       standardProblem: '',
       dialogVisible2: false,
       dialogVisible3: false,
+      labels: [],
       score: 0,
       answerProblem: '',
       options: [{
@@ -172,6 +176,7 @@ export default {
       this.kind = response.data.kind
       this.standardProblem = response.data.standard
       this.answerProblem = response.data.answer
+      this.uploadUsername = response.data.uploadUsername
       if (this.kind === '1') {
         this.showYes = true
       } else {
@@ -179,6 +184,10 @@ export default {
       }
     }).catch((error) => {
       console.log(error) // 请求失败返回的数据
+    })
+    this.$axios({method: 'GET',
+      url: this.$baseUrl + '/ProblemLabel/getProblemLabel?id=' + this.$route.query.id}).then((response) => {
+      this.labels = response.data
     })
   },
   methods: {

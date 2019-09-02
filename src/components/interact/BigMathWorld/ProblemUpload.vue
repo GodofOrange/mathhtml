@@ -33,6 +33,27 @@
       <span>题解：</span>
       <tinymce-editor v-model="answer" :disabled="disabled"></tinymce-editor>
       <el-divider/>
+      <span>添加题目标签：</span>
+      <el-tag
+        :key="tag"
+        v-for="tag in labels"
+        closable
+        :disable-transitions="false"
+        @close="handleClose(tag)">
+        {{tag}}
+      </el-tag>
+      <el-input
+        class="input-new-tag"
+        v-if="inputVisible"
+        v-model="inputValue"
+        ref="saveTagInput"
+        size="small"
+        @keyup.enter.native="handleInputConfirm"
+        @blur="handleInputConfirm"
+      >
+      </el-input>
+      <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+      <el-divider/>
       <el-button type="primary" @click="PostProblem">上传题目</el-button>
     </div>
 </template>
@@ -49,6 +70,9 @@ export default {
       body: '请在此编写题目',
       answer: '',
       title: '',
+      labels: [],
+      inputVisible: false,
+      inputValue: '',
       disabled: false,
       options: [{
         value: '1',
@@ -93,20 +117,54 @@ export default {
           body: this.body,
           answer: this.answer,
           kind: this.kind,
-          standard: this.standard
+          standard: this.standard,
+          labels: this.labels
         }
       }).then((response) => {
         if (response.data === true) {
           this.$message.success('提交成功')
         } else {
-          this.$message.error('服务器错误提交失败')
+          this.$message.error('服务器错误提交失败,可能题目名字相同，请尝试题目名后面+数字噢')
         }
       })
+    },
+    handleClose (tag) {
+      this.labels.splice(this.labels.indexOf(tag), 1)
+    },
+
+    showInput () {
+      this.inputVisible = true
+      this.$nextTick(_ => {
+        this.$refs.saveTagInput.$refs.input.focus()
+      })
+    },
+
+    handleInputConfirm () {
+      let inputValue = this.inputValue
+      if (inputValue) {
+        this.labels.push(inputValue)
+      }
+      this.inputVisible = false
+      this.inputValue = ''
     }
   }
 }
 </script>
 
 <style scoped>
-
+  .el-tag + .el-tag {
+    margin-left: 10px;
+  }
+  .button-new-tag {
+    margin-left: 10px;
+    height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .input-new-tag {
+    width: 90px;
+    margin-left: 10px;
+    vertical-align: bottom;
+  }
 </style>

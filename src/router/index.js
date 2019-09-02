@@ -68,6 +68,11 @@ const teamEnter = () => import('@/components/extract/math_model/modeling_high_de
 const MyInfomation = () => import('@/components/allviews/MyInfomation.vue')
 const game = () => import('@/components/extract/game/game.vue')
 const TeacherClient = () => import('@/components/allviews/Teacher/TeacherClient.vue')
+const homeworkedit = () => import('@/components/allviews/Teacher/homeworkedit.vue')
+const book = () => import('@/components/interact/BigMathWorld/book.vue')
+const createBook = () => import('@/components/interact/BigMathWorld/CreateBook/CreateBook.vue')
+const createChapter = () => import('@/components/interact/BigMathWorld/CreateBook/CreateChapter.vue')
+const createUpLoadProblem = () => import('@/components/interact/BigMathWorld/CreateBook/CreateUpLoadProblem.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -134,7 +139,14 @@ export default new Router({
       children: [{path: 'homework_play', component: homeworkPlay},
         {path: 'article', component: articleUP},
         {path: 'problem_upload', component: ProblemUpload},
-        {path: 'theOneHomeWork', component: theOneHomework}]
+        {path: 'theOneHomeWork', component: theOneHomework},
+        {path: 'book',
+          component: book,
+          children: [{
+            path: 'CreateBook', component: createBook
+          }, {path: 'CreateChapter', component: createChapter},
+          {path: 'CreateUpLoadProblem', component: createUpLoadProblem}]
+        }]
     },
     {
       path: '/problems/example_problem',
@@ -231,6 +243,11 @@ export default new Router({
       path: '/TeacherClient',
       name: 'TeacherClient',
       component: TeacherClient
+    },
+    {
+      path: '/homeworkedit',
+      name: 'homeworkedit',
+      component: homeworkedit
     }
   ]
 })

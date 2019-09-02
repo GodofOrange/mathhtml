@@ -20,6 +20,9 @@
           <i class="el-icon-setting"></i>
           <span slot="title">视频资料上传</span>
         </el-menu-item>
+        <el-menu-item index="5">
+          <span slot="title">题解上传</span>
+        </el-menu-item>
       </el-menu>
     </el-col>
       <el-col :span="20">
@@ -53,6 +56,10 @@ export default {
       } else if (key === '3') {
         this.$router.push({
           path: '/community/BigMath/problem_upload'
+        })
+      } else if (key === '5') {
+        this.$router.push({
+          path: '/community/BigMath/book'
         })
       }
     }
