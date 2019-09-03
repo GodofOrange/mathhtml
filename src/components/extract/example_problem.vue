@@ -12,6 +12,12 @@
           <p>题目讨论</p>
           <el-divider></el-divider>
           <p>相似题型推荐</p>
+          <el-table :data="problemset">
+            <el-table-column prop="problemsetId" label="#" column-key="id"></el-table-column>
+            <el-table-column prop="title" label="题目标题"></el-table-column>
+            <el-table-column prop="level" label="题目难度"></el-table-column>
+            <el-table-column label="题目链接" ><template slot-scope="scope"><el-button size="mini" @click="turnToProblem(scope.row.title, scope.row.problemsetId, scope.row.level)">进入</el-button></template></el-table-column>
+          </el-table>
         </el-col>
       </el-row>
     </div>
@@ -30,7 +36,8 @@ export default {
         children: 'zones',
         isLeaf: 'leaf',
         key: 'key'
-      }
+      },
+      problemset: []
     }
   },
   created: function () {
@@ -92,10 +99,29 @@ export default {
         }).then((response) => {
           this.body = response.data.body
           this.answer = response.data.answer
+          this.$axios({
+            method: 'GET',
+            url: this.$baseUrl + '/ExampleLinksController/getAllExampleLinksNameById',
+            params: {
+              id: data.key
+            }
+          }).then((response) => {
+            this.problemset = response.data
+          })
         })
         console.log(data.name)
         this.title = data.name
       }
+    },
+    turnToProblem (pstitle, pid, level) {
+      this.$router.push({
+        path: '/problem',
+        query: {
+          id: pid,
+          title: pstitle,
+          level: level
+        }
+      })
     }
   }
 }
