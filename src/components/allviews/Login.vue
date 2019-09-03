@@ -58,7 +58,7 @@ export default {
             this.logining = false
             console.log(response.data)
             this.$emit('changeMyName')
-            this.$router.push({path: '/'})
+            this.$router.go(-1)
           }).catch((error, response) => {
             console.log(response)
             this.logining = false

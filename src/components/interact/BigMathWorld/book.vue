@@ -5,8 +5,7 @@
     <el-step title="选择章节"></el-step>
     <el-step title="上传题目"></el-step>
   </el-steps>
-  <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
-  <router-view/>
+  <router-view @next="next" @back="back"/>
   <el-divider/>
 </div>
 </template>
@@ -20,18 +19,17 @@ export default {
     }
   },
   mounted () {
-    this.$router.push('/community/BigMath/book/CreateBook')
+    this.$router.replace('/community/BigMath/book/CreateBook')
   },
   methods: {
     next () {
       if (this.active++ > 2) this.active = 0
       if (this.active === 0) {
         this.$router.push('/community/BigMath/book/CreateBook')
-      } else if (this.active === 1) {
-        this.$router.push('/community/BigMath/book/CreateChapter')
-      } else if (this.active === 2) {
-        this.$router.push('/community/BigMath/book/CreateUpLoadProblem')
       }
+    },
+    back () {
+      if (this.active-- < 0) this.active = 0
     }
   }
 }
