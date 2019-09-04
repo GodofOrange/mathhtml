@@ -9,8 +9,6 @@
           <el-divider></el-divider>
           <div v-html="answer"></div>
           <el-divider></el-divider>
-          <p>题目讨论</p>
-          <el-divider></el-divider>
           <p>相似题型推荐</p>
           <el-table :data="problemset">
             <el-table-column prop="problemsetId" label="#" column-key="id"></el-table-column>

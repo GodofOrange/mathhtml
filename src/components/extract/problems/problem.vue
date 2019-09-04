@@ -12,9 +12,9 @@
         </el-rate></el-col>
         <el-col :span="6">
           <el-tag
-            :key="tag"
+            :key="key"
             v-model="labels"
-            v-for="tag in labels"
+            v-for="(tag,key) in labels"
             :disable-transitions="false" style="margin-left: 10px">
             {{tag.name}}
           </el-tag>
@@ -50,15 +50,23 @@
     </div>
     <el-divider/>
     <div>
-      <el-row>
-        <el-col :span="12"><h3>评论区</h3></el-col>
-      </el-row>
+      <h2 style="text-align: center">评论区</h2>
+      <el-divider/>
+      <el-input v-model="comment" style="width: 50%"></el-input><el-button style="float: right" type="primary" @click="UpLoadComment">添加评论</el-button>
+      <el-divider/>
+          <el-table :data="comments" style="width: 100%">
+            <el-table-column label="#" prop="id" width="110"></el-table-column>
+            <el-table-column label="用户名" width="180"><template slot-scope="scope"><div>{{ scope.row.username }}</div></template></el-table-column>
+            <el-table-column label="头像" width="90"><template slot-scope="scope"><img style="width: 50px;height: 50px;" src="@/assets/logo.png"/></template></el-table-column>
+            <el-table-column prop="content" width="500" label="评论内容"></el-table-column>
+            <el-table-column prop="time" label="时间" width="180"></el-table-column>
+            <el-table-column label="回复" ><template slot-scope="scope"><el-button size="mini" @click="CommentReply(scope.row.id)">查看回复</el-button></template></el-table-column>
+          </el-table>
     </div>
     </el-row>
-    <el-dialog
-      title="题目提交预览"
-      :visible.sync="dialogVisible"
-      width="70%">
+    <el-dialog title="题目提交预览" :visible.sync="dialogVisible" width="70%">
+      题目如下所示：
+      请在此编写题目
       <h3>题目名称：</h3>
       <h2>{{title}}</h2>
       <el-divider/>
@@ -82,7 +90,6 @@
       <h3>题目名称：</h3>
       <h2>{{title}}</h2>
       <el-divider/>
-
       <h3>分数：</h3>
       <h2 style="color: red">+{{score}}</h2>
       <el-divider/>
@@ -92,6 +99,20 @@
     <el-button type="primary" @click="dialogVisible2=false">确 定</el-button>
   </span>
     </el-dialog>
+    <el-dialog title="评论回复" :visible.sync="dialogVisible4" width="70%">
+      <el-table :data="comments_reply" style="width: 100%">
+        <el-table-column label="#" prop="id" width="110"></el-table-column>
+        <el-table-column label="用户名" width="180"><template slot-scope="scope"><div>{{ scope.row.username }}</div></template></el-table-column>
+        <el-table-column prop="content" label="评论内容"></el-table-column>
+        <el-table-column prop="time" label="时间" width="180"></el-table-column>
+      </el-table>
+      <el-divider/>
+      <el-input v-model="comment_reply" style="width: 600px"></el-input>
+      <el-button @click="upLoadCommentReply">回复他</el-button>
+      <span slot="footer" class="dialog-footer">
+    <el-button type="primary" @click="dialogVisible4=false">确 定</el-button>
+      </span>
+    </el-dialog>
     <el-dialog
       title="证明题自动检查模块"
       :visible.sync="dialogVisible3"
@@ -99,7 +120,6 @@
       <h3>题目名称：</h3>
       <h2>{{title}}</h2>
       <el-divider/>
-
       <h3>请设置您的分数：</h3>
       <template>
         <el-select v-model="score" placeholder="请选择您的自查分数">
@@ -111,7 +131,6 @@
           </el-option>
         </el-select>
       </template>
-
       <el-divider/>
       <h2>题解如下：</h2>
       <div v-html="answerProblem"></div>
@@ -144,8 +163,11 @@ export default {
       standardProblem: '',
       dialogVisible2: false,
       dialogVisible3: false,
+      dialogVisible4: false,
       labels: [],
       score: 0,
+      comment: '',
+      problemcommentid: '',
       answerProblem: '',
       options: [{
         value: '0',
@@ -165,7 +187,10 @@ export default {
       }, {
         value: '5',
         label: '5'
-      }]
+      }],
+      comments: [],
+      comments_reply: [],
+      comment_reply: ''
     }
   },
   mounted () {
@@ -188,6 +213,10 @@ export default {
     this.$axios({method: 'GET',
       url: this.$baseUrl + '/ProblemLabel/getProblemLabel?id=' + this.$route.query.id}).then((response) => {
       this.labels = response.data
+    })
+    this.$axios({method: 'GET',
+      url: this.$baseUrl + '/ProblemComment/getCommentByProblemsetId?id=' + this.$route.query.id}).then((response) => {
+      this.comments = response.data
     })
   },
   methods: {
@@ -237,6 +266,56 @@ export default {
           this.dialogVisible2 = true
         } else {
           this.$message.error('请先登录')
+        }
+      })
+    },
+    UpLoadComment () {
+      this.$axios({method: 'POST',
+        url: this.$baseUrl + '/ProblemComment/addProblemComment',
+        params: {
+          content: this.comment,
+          problemsetid: this.$route.query.id
+        }}).then((response) => {
+        if (response.data === true) {
+          this.$message.success('提交评论成功')
+          this.$axios({method: 'GET',
+            url: this.$baseUrl + '/ProblemComment/getCommentByProblemsetId?id=' + this.$route.query.id}).then((response) => {
+            this.comments = response.data
+          })
+        } else {
+          this.$message.error('提交评论失败')
+        }
+      })
+    },
+    CommentReply (problemcommentid) {
+      this.dialogVisible4 = true
+      this.problemcommentid = problemcommentid
+      this.$axios({method: 'GET',
+        url: this.$baseUrl + '/CommentReply/getAllCommentReplyByid',
+        params: {
+          id: problemcommentid
+        }}).then((response) => {
+        this.comments_reply = response.data
+      })
+    },
+    upLoadCommentReply () {
+      this.$axios({method: 'POST',
+        url: this.$baseUrl + '/CommentReply/addCommentReply',
+        params: {
+          problemcommentid: this.problemcommentid,
+          content: this.comment_reply
+        }}).then((response) => {
+        if (response.data === true) {
+          this.$message.success('评论回复成功！')
+          this.$axios({method: 'GET',
+            url: this.$baseUrl + '/CommentReply/getAllCommentReplyByid',
+            params: {
+              id: this.problemcommentid
+            }}).then((response) => {
+            this.comments_reply = response.data
+          })
+        } else {
+          this.$message.error('回复失败')
         }
       })
     }

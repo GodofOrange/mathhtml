@@ -21,7 +21,6 @@ require('tinymce/plugins/wordcount')
 require('tinymce/plugins/colorpicker')
 require('tinymce/plugins/textcolor')
 require('tinymce/plugins/paste')
-
 export default {
   components: {
     Editor
@@ -37,7 +36,7 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: 'lists image media table textcolor wordcount contextmenu powerpaste'
+      default: 'lists image media table textcolor wordcount contextmenu powerpaste mathtype-tinymce4'
     },
     toolbar: {
       type: [String, Array],
@@ -58,7 +57,8 @@ export default {
         menubar: false,
         paste_data_images: true,
         external_plugins: {
-          tiny_mce_wiris: 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js',
+          // tiny_mce_wiris: 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js',
+          tiny_mce_wiris: '/static/tinymce/@wiris/mathtype-tinymce4/plugin.min.js',
           powerpaste: '/static/tinymce/powerpaste/plugin.min.js'
         },
         images_upload_handler: (blobInfo, success, failure) => {
