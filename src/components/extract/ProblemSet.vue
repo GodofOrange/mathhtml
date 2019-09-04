@@ -95,13 +95,6 @@
           <el-table-column label="题目链接" ><template slot-scope="scope"><el-button size="mini" @click="turnToProblem(scope.row.title, scope.row.id, scope.row.level)">进入</el-button></template></el-table-column>
         </el-table>
       </div>
-    <div class="block" style="margin-right: 30%;margin-left: 30%">
-      <el-pagination
-        :page-size="100"
-        layout="prev, pager, next, jumper"
-        :total="1000">
-      </el-pagination>
-    </div>
   </div>
 </div>
 </template>
