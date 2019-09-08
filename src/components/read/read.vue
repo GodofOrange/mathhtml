@@ -1,6 +1,6 @@
 <template>
   <div id="read">
-    <h1 style="text-align: center">阅读</h1>
+    <h1 style="text-align: center;">阅读</h1>
     <el-divider></el-divider>
     <el-row>
       <el-col :span="3"></el-col>
@@ -20,7 +20,7 @@
       <el-col :span="6">
         <h1>今日阅读排行榜</h1>
         <ul>
-          <li>排第一的</li>
+          <li style="color: red">排第一的</li>
           <li>第二的</li>
           <li>第三的</li>
         </ul>

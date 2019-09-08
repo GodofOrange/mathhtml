@@ -16,7 +16,6 @@ axios.defaults.withCredentials = true
 Vue.prototype.$axios = axios // 全局注册，使用方法为:this.$axios
 Vue.prototype.qs = qs
 Vue.prototype.$baseUrl = 'http://127.0.0.1:8081'
-Vue.prototype.$baseDomain = '127.0.0.1:8081'
 NProgress.inc(0.1)
 NProgress.configure({ easing: 'ease', speed: 100, showSpinner: false })
 router.beforeEach((to, from, next) => {

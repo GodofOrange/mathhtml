@@ -4,7 +4,7 @@
       <span>题目名称：</span>
       <el-input v-model="title" placeholder="请输入题目" style="width: 30%"></el-input>
       <el-divider/>
-      <span>请选择难度</span>
+      <span style="color: red;">请选择难度</span>
       <el-select v-model="level" placeholder="请选择">
         <el-option
           v-for="item in options"
